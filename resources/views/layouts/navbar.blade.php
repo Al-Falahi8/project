@@ -64,6 +64,13 @@
             
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('cart.show') }}">
+                        <span class="fas fa-cart-arrow-down">
+                            ({{ session()->has('cart') ? session()->get('cart')->totalQty : '0' }}) My Cart
+                        </span>
+                    </a>
+                </li>
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
@@ -81,11 +88,14 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
+                            <a class="dropdown-item" href="{{ route('purchase.index') }}">Your Purchases <i class="fas fa-grip-horizontal ml-1"></i></a>
+                            <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard <i class="fas fa-tachometer-alt ml-3"></i></a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
-                                <i class="fas fa-sign-out-alt">{{ __('Logout') }}</i>
+                                {{ __('Logout') }}
+                                <i class="fas fa-sign-out-alt ml-5"></i>
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -96,9 +106,6 @@
                 @endguest
                 
                 
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Cart</a>
-                </li>
             </ul>
         </nav>
         </div>

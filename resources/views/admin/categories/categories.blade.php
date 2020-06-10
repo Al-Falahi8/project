@@ -3,24 +3,14 @@
 @section('content')
     
     <div class="container text-center">
-        {{-- @php
-            $cate_name = DB::table('categories')->select('name')->where('id', $id)->get();
-        @endphp
-        <h1>
-            Catagory :
-            @foreach ($cate_name as $categories)
-                {{ $categories->name }}
-            @endforeach
-        </h1> --}}
-        <br>
         <div class="row">
             @foreach ($categories as $product)
-                <div class="card col-3">
+                <div class="card col-3 mr-3 mb-3">
                     <div class="card">
-                        <img class="card-img-top" src="{{ url('uploads/products/', $product->image) }}" alt="Card image cap">
+                        <img class="card-img-top" src="{{ url('uploads/products/', $product->image) }}" width="100%" height="225" text="Thumbnail" alt="Card image cap">
                     </div>
-                    <div class="card-body">
-                        <h4 class="card-title">{{ $product->name }}</h4>
+                    <div class="card-body text-center">
+                        <h2 class="card-title"><strong>{{ $product->name }}</strong></h2>
                         <p class="card-text">{{ $product->description }}</p>
                     </div>
                     <div class="card-body">

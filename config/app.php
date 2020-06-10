@@ -167,7 +167,9 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        // Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
+        Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
+        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+
 
         /*
          * Package Service Providers...
@@ -236,7 +238,11 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+        'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class,
+        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+
+
+
 
     ],
 

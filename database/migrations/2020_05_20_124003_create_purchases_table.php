@@ -15,8 +15,8 @@ class CreatePurchasesTable extends Migration
     {
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
-            $table->date('purchase_date');
-            $table->float('paypal');
+            $table->integer('user_id')->unsigned();
+            $table->text('cart');
             $table->timestamps();
         });
     }

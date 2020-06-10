@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
+use App\Cart;
 use App\Product;
+use App\Category;
 use Illuminate\Http\Request;
-use Intervention\Image\Facades\Image;
-use Symfony\Component\Console\Input\Input;
+use RealRashid\SweetAlert\Facades\Alert;
+use Cartalyst\Stripe\Laravel\Facades\Stripe;
+
 
 class ProductsController extends Controller
 {
@@ -31,7 +33,7 @@ class ProductsController extends Controller
         $this->validate($request, [
             'name'          =>  'bail|required',
             'description'   =>  'required',
-            'price'   =>  'required',
+            'price'         =>  'required',
             'image'         =>  'image|max:10000'
         ]);
 
@@ -46,65 +48,76 @@ class ProductsController extends Controller
 
 
         Product::create($formInput);
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard')->with('success', 'Asset has been successful added. Thank you');
+        //     return redirect('/admin.dashboard')->with('success', 'Assets have been added successfully');
     }
 
+    public function destroy(Product $product)
+    {
+        $cart = new Cart(session()->get('cart'));
+        $cart->remove($product->id);
 
+        if ($cart->totalQty <= 0) {
+            session()->forget('cart');
+        } else {
+            session()->put('cart', $cart);
+        }
 
+        return redirect()->route('cart.show')->with('success', 'Product has been removed');
+    }
 
+    public function addToCart(Product $product)
+    {
+        if (session()->has('cart')) {
+            $cart = new Cart(session()->get('cart'));
+        } else {
+            $cart = new Cart();
+        }
 
+        $cart->add($product);
 
-    // $request->validate([
-    //     'product_name' => 'bail|required',
-    //     'product_description' => 'required'
-    // ]);
+        session()->put('cart', $cart);
+        return redirect()->route('market')->with('success', 'Product has been added');
+    }
 
+    public function showCart()
+    {
+        if (session()->has('cart')) {
+            $cart = new Cart(session()->get('cart'));
+        } else {
+            $cart = null;
+        }
+        return view('cart.show', compact('cart'));
+    }
 
-    // if ($request->isMethod('post')) {
-    // $data = $request->all();
+    public function checkout($amount)
+    {
+        return view('cart.checkout', compact('amount'));
+    }
 
-    // $product = new Product;
-    // $product->product_name = $request->input('product_name');
-    // $product->product_description = $request->input('product_description');
-    // $product->product_price = $request->input('product_price');
-    // if (!empty($data['product_description'])) {
-    //     $request->product_description = $data['product_description'];
-    // }
-    // $product->product_price = $data['product_price'];
+    public function charge(Request $request)
+    {
+        $charge = Stripe::charges()->create([
+            'currency'      =>  'EUR',
+            'source'        =>  $request->stripeToken,
+            'amount'        =>  $request->amount,
+            'description'   =>  'Testing my new App'
+        ]);
 
-    // // Upload Image
-    // if ($request->hasFile('product_img')) {
-    //     $product_img = $request->product_img;
-    //     foreach ($product_img as $value) {
+        $chargeId = $charge['id'];
 
-    //         $filename = time() . '-' . $value->getClientOriginalName();
-    //     // $extension = $product_img->getClientOriginalExtension();
-    //     // $filename = rand(111, 99999) . '-' . $extension;
-    // $location = public_path('uploads/products/' . $filename);
+        if ($chargeId) {
+            // save Purchases in purchase table..
+            auth()->user()->purchases()->create([
+                'cart'  => serialize(session()->get('cart'))
+            ]);
 
-    // Image::make($value)->save($location);
-    // }
+            // clearn Cart (session)
+            session()->forget('cart');
 
-    //     $product->product_img = $filename;
-    // }
-
-
-    // $product_img = Input::file('product_img',);
-    // if ($product_img->isValid()) {
-
-    //     //Image path code
-    //     $extension = $product_img->getClientOriginalExtension();
-    //     $filename = rand(111, 99999) . '.' . $extension;
-    //     $product_img = 'uploads/products/' . $filename;
-
-    //     //Image resize
-    //     Image::make($product_img)->resize(500, 500)->save($product_img);
-    //     $product->product_img = $filename;
-    // }
-
-
-    //     $product->save();
-    //     return redirect('/admin.dashboard')->with('success', 'Assets have been added successfully');
-    // }
-    // return view('admin.categories.add_product');
+            return redirect()->route('market')->with('success', 'Payment was successful. Thank you');
+        } else {
+            return redirect()->back();
+        }
+    }
 }

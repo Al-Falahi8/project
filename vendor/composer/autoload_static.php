@@ -17,10 +17,10 @@ class ComposerStaticInit8d79da342eee01ee1a9baa564a01cda7
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
-        '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
+        '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
@@ -34,6 +34,7 @@ class ComposerStaticInit8d79da342eee01ee1a9baa564a01cda7
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
+        '6b34c85f7b1ad6faa15aa12109e030f2' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -86,9 +87,11 @@ class ComposerStaticInit8d79da342eee01ee1a9baa564a01cda7
             'Symfony\\Component\\ErrorHandler\\' => 31,
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
+            'Spatie\\Honeypot\\' => 16,
         ),
         'R' => 
         array (
+            'RealRashid\\SweetAlert\\' => 22,
             'Ramsey\\Uuid\\' => 12,
             'Ramsey\\Collection\\' => 18,
         ),
@@ -120,6 +123,7 @@ class ComposerStaticInit8d79da342eee01ee1a9baa564a01cda7
         array (
             'League\\Flysystem\\' => 17,
             'League\\CommonMark\\' => 18,
+            'Laravelista\\Comments\\' => 21,
             'Laravel\\Ui\\' => 11,
             'Laravel\\Tinker\\' => 15,
         ),
@@ -160,6 +164,8 @@ class ComposerStaticInit8d79da342eee01ee1a9baa564a01cda7
         array (
             'Cron\\' => 5,
             'Collective\\Html\\' => 16,
+            'Cartalyst\\Stripe\\Laravel\\' => 25,
+            'Cartalyst\\Stripe\\' => 17,
             'Carbon\\' => 7,
         ),
         'B' => 
@@ -304,6 +310,14 @@ class ComposerStaticInit8d79da342eee01ee1a9baa564a01cda7
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
         ),
+        'Spatie\\Honeypot\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/laravel-honeypot/src',
+        ),
+        'RealRashid\\SweetAlert\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/realrashid/sweet-alert/src',
+        ),
         'Ramsey\\Uuid\\' => 
         array (
             0 => __DIR__ . '/..' . '/ramsey/uuid/src',
@@ -367,6 +381,10 @@ class ComposerStaticInit8d79da342eee01ee1a9baa564a01cda7
         'League\\CommonMark\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/commonmark/src',
+        ),
+        'Laravelista\\Comments\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravelista/comments/src',
         ),
         'Laravel\\Ui\\' => 
         array (
@@ -456,6 +474,14 @@ class ComposerStaticInit8d79da342eee01ee1a9baa564a01cda7
         array (
             0 => __DIR__ . '/..' . '/laravelcollective/html/src',
         ),
+        'Cartalyst\\Stripe\\Laravel\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cartalyst/stripe-laravel/src',
+        ),
+        'Cartalyst\\Stripe\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cartalyst/stripe/src',
+        ),
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
@@ -475,6 +501,13 @@ class ComposerStaticInit8d79da342eee01ee1a9baa564a01cda7
     );
 
     public static $prefixesPsr0 = array (
+        'P' => 
+        array (
+            'Parsedown' => 
+            array (
+                0 => __DIR__ . '/..' . '/erusev/parsedown',
+            ),
+        ),
         'M' => 
         array (
             'Mockery' => 
@@ -498,6 +531,7 @@ class ComposerStaticInit8d79da342eee01ee1a9baa564a01cda7
     public static $classMap = array (
         'AdminsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/AdminsTableSeeder.php',
         'App\\Admin' => __DIR__ . '/../..' . '/app/Admin.php',
+        'App\\Cart' => __DIR__ . '/../..' . '/app/Cart.php',
         'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -518,6 +552,7 @@ class ComposerStaticInit8d79da342eee01ee1a9baa564a01cda7
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\MarketController' => __DIR__ . '/../..' . '/app/Http/Controllers/MarketController.php',
         'App\\Http\\Controllers\\ProductsController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductsController.php',
+        'App\\Http\\Controllers\\PurchaseController' => __DIR__ . '/../..' . '/app/Http/Controllers/PurchaseController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Admin' => __DIR__ . '/../..' . '/app/Http/Middleware/Admin.php',
@@ -536,6 +571,7 @@ class ComposerStaticInit8d79da342eee01ee1a9baa564a01cda7
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Purchase' => __DIR__ . '/../..' . '/app/Purchase.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/Cors.php',
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/CorsService.php',
@@ -622,6 +658,87 @@ class ComposerStaticInit8d79da342eee01ee1a9baa564a01cda7
         'Carbon\\Traits\\Units' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Traits/Units.php',
         'Carbon\\Traits\\Week' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Traits/Week.php',
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
+        'Cartalyst\\Stripe\\AmountConverter' => __DIR__ . '/..' . '/cartalyst/stripe/src/AmountConverter.php',
+        'Cartalyst\\Stripe\\Api\\Account' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Account.php',
+        'Cartalyst\\Stripe\\Api\\Account\\AccountLink' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Account/AccountLink.php',
+        'Cartalyst\\Stripe\\Api\\Account\\Capabilities' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Account/Capabilities.php',
+        'Cartalyst\\Stripe\\Api\\Account\\Persons' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Account/Persons.php',
+        'Cartalyst\\Stripe\\Api\\Api' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Api.php',
+        'Cartalyst\\Stripe\\Api\\ApiInterface' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/ApiInterface.php',
+        'Cartalyst\\Stripe\\Api\\ApplicationFeeRefunds' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/ApplicationFeeRefunds.php',
+        'Cartalyst\\Stripe\\Api\\ApplicationFees' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/ApplicationFees.php',
+        'Cartalyst\\Stripe\\Api\\Balance' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Balance.php',
+        'Cartalyst\\Stripe\\Api\\BalanceTransactions' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/BalanceTransactions.php',
+        'Cartalyst\\Stripe\\Api\\BankAccounts' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/BankAccounts.php',
+        'Cartalyst\\Stripe\\Api\\Bitcoin' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Bitcoin.php',
+        'Cartalyst\\Stripe\\Api\\Cards' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Cards.php',
+        'Cartalyst\\Stripe\\Api\\Charges' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Charges.php',
+        'Cartalyst\\Stripe\\Api\\Checkout' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Checkout.php',
+        'Cartalyst\\Stripe\\Api\\Checkout\\Sessions' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Checkout/Sessions.php',
+        'Cartalyst\\Stripe\\Api\\CountrySpecs' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/CountrySpecs.php',
+        'Cartalyst\\Stripe\\Api\\Coupons' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Coupons.php',
+        'Cartalyst\\Stripe\\Api\\CreditNotes' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/CreditNotes.php',
+        'Cartalyst\\Stripe\\Api\\CustomerBalanceTransactions' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/CustomerBalanceTransactions.php',
+        'Cartalyst\\Stripe\\Api\\CustomerTaxIds' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/CustomerTaxIds.php',
+        'Cartalyst\\Stripe\\Api\\Customers' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Customers.php',
+        'Cartalyst\\Stripe\\Api\\Disputes' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Disputes.php',
+        'Cartalyst\\Stripe\\Api\\EphemeralKey' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/EphemeralKey.php',
+        'Cartalyst\\Stripe\\Api\\Events' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Events.php',
+        'Cartalyst\\Stripe\\Api\\ExternalAccounts' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/ExternalAccounts.php',
+        'Cartalyst\\Stripe\\Api\\FileLinks' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/FileLinks.php',
+        'Cartalyst\\Stripe\\Api\\FileUploads' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/FileUploads.php',
+        'Cartalyst\\Stripe\\Api\\Files' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Files.php',
+        'Cartalyst\\Stripe\\Api\\InvoiceItems' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/InvoiceItems.php',
+        'Cartalyst\\Stripe\\Api\\Invoices' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Invoices.php',
+        'Cartalyst\\Stripe\\Api\\OrderReturns' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/OrderReturns.php',
+        'Cartalyst\\Stripe\\Api\\Orders' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Orders.php',
+        'Cartalyst\\Stripe\\Api\\PaymentIntents' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/PaymentIntents.php',
+        'Cartalyst\\Stripe\\Api\\PaymentMethods' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/PaymentMethods.php',
+        'Cartalyst\\Stripe\\Api\\Payouts' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Payouts.php',
+        'Cartalyst\\Stripe\\Api\\Plans' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Plans.php',
+        'Cartalyst\\Stripe\\Api\\Products' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Products.php',
+        'Cartalyst\\Stripe\\Api\\Radar' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Radar.php',
+        'Cartalyst\\Stripe\\Api\\Radar\\EarlyFraudWarning' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Radar/EarlyFraudWarning.php',
+        'Cartalyst\\Stripe\\Api\\Radar\\Reviews' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Radar/Reviews.php',
+        'Cartalyst\\Stripe\\Api\\Radar\\ValueListItems' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Radar/ValueListItems.php',
+        'Cartalyst\\Stripe\\Api\\Radar\\ValueLists' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Radar/ValueLists.php',
+        'Cartalyst\\Stripe\\Api\\Recipients' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Recipients.php',
+        'Cartalyst\\Stripe\\Api\\Refunds' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Refunds.php',
+        'Cartalyst\\Stripe\\Api\\ScheduledQueries' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/ScheduledQueries.php',
+        'Cartalyst\\Stripe\\Api\\SetupIntents' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/SetupIntents.php',
+        'Cartalyst\\Stripe\\Api\\Skus' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Skus.php',
+        'Cartalyst\\Stripe\\Api\\Sources' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Sources.php',
+        'Cartalyst\\Stripe\\Api\\SubscriptionItems' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/SubscriptionItems.php',
+        'Cartalyst\\Stripe\\Api\\SubscriptionSchedules' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/SubscriptionSchedules.php',
+        'Cartalyst\\Stripe\\Api\\Subscriptions' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Subscriptions.php',
+        'Cartalyst\\Stripe\\Api\\TaxRates' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/TaxRates.php',
+        'Cartalyst\\Stripe\\Api\\Terminal' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Terminal.php',
+        'Cartalyst\\Stripe\\Api\\Terminal\\ConnectionTokens' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Terminal/ConnectionTokens.php',
+        'Cartalyst\\Stripe\\Api\\Terminal\\Locations' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Terminal/Locations.php',
+        'Cartalyst\\Stripe\\Api\\Terminal\\Readers' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Terminal/Readers.php',
+        'Cartalyst\\Stripe\\Api\\Tokens' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Tokens.php',
+        'Cartalyst\\Stripe\\Api\\Topup' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Topup.php',
+        'Cartalyst\\Stripe\\Api\\TransferReversals' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/TransferReversals.php',
+        'Cartalyst\\Stripe\\Api\\Transfers' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/Transfers.php',
+        'Cartalyst\\Stripe\\Api\\UsageRecords' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/UsageRecords.php',
+        'Cartalyst\\Stripe\\Api\\WebhookEndpoints' => __DIR__ . '/..' . '/cartalyst/stripe/src/Api/WebhookEndpoints.php',
+        'Cartalyst\\Stripe\\Config' => __DIR__ . '/..' . '/cartalyst/stripe/src/Config.php',
+        'Cartalyst\\Stripe\\ConfigInterface' => __DIR__ . '/..' . '/cartalyst/stripe/src/ConfigInterface.php',
+        'Cartalyst\\Stripe\\Exception\\ApiLimitExceededException' => __DIR__ . '/..' . '/cartalyst/stripe/src/Exception/ApiLimitExceededException.php',
+        'Cartalyst\\Stripe\\Exception\\BadRequestException' => __DIR__ . '/..' . '/cartalyst/stripe/src/Exception/BadRequestException.php',
+        'Cartalyst\\Stripe\\Exception\\CardErrorException' => __DIR__ . '/..' . '/cartalyst/stripe/src/Exception/CardErrorException.php',
+        'Cartalyst\\Stripe\\Exception\\Handler' => __DIR__ . '/..' . '/cartalyst/stripe/src/Exception/Handler.php',
+        'Cartalyst\\Stripe\\Exception\\InvalidRequestException' => __DIR__ . '/..' . '/cartalyst/stripe/src/Exception/InvalidRequestException.php',
+        'Cartalyst\\Stripe\\Exception\\MissingParameterException' => __DIR__ . '/..' . '/cartalyst/stripe/src/Exception/MissingParameterException.php',
+        'Cartalyst\\Stripe\\Exception\\NotFoundException' => __DIR__ . '/..' . '/cartalyst/stripe/src/Exception/NotFoundException.php',
+        'Cartalyst\\Stripe\\Exception\\ServerErrorException' => __DIR__ . '/..' . '/cartalyst/stripe/src/Exception/ServerErrorException.php',
+        'Cartalyst\\Stripe\\Exception\\StripeException' => __DIR__ . '/..' . '/cartalyst/stripe/src/Exception/StripeException.php',
+        'Cartalyst\\Stripe\\Exception\\UnauthorizedException' => __DIR__ . '/..' . '/cartalyst/stripe/src/Exception/UnauthorizedException.php',
+        'Cartalyst\\Stripe\\Laravel\\Facades\\Stripe' => __DIR__ . '/..' . '/cartalyst/stripe-laravel/src/Facades/Stripe.php',
+        'Cartalyst\\Stripe\\Laravel\\StripeServiceProvider' => __DIR__ . '/..' . '/cartalyst/stripe-laravel/src/StripeServiceProvider.php',
+        'Cartalyst\\Stripe\\Pager' => __DIR__ . '/..' . '/cartalyst/stripe/src/Pager.php',
+        'Cartalyst\\Stripe\\Stripe' => __DIR__ . '/..' . '/cartalyst/stripe/src/Stripe.php',
+        'Cartalyst\\Stripe\\Utility' => __DIR__ . '/..' . '/cartalyst/stripe/src/Utility.php',
         'Collective\\Html\\Componentable' => __DIR__ . '/..' . '/laravelcollective/html/src/Componentable.php',
         'Collective\\Html\\Eloquent\\FormAccessible' => __DIR__ . '/..' . '/laravelcollective/html/src/Eloquent/FormAccessible.php',
         'Collective\\Html\\FormBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/FormBuilder.php',
@@ -2549,6 +2666,16 @@ class ComposerStaticInit8d79da342eee01ee1a9baa564a01cda7
         'Laravel\\Ui\\Presets\\Vue' => __DIR__ . '/..' . '/laravel/ui/src/Presets/Vue.php',
         'Laravel\\Ui\\UiCommand' => __DIR__ . '/..' . '/laravel/ui/src/UiCommand.php',
         'Laravel\\Ui\\UiServiceProvider' => __DIR__ . '/..' . '/laravel/ui/src/UiServiceProvider.php',
+        'Laravelista\\Comments\\Comment' => __DIR__ . '/..' . '/laravelista/comments/src/Comment.php',
+        'Laravelista\\Comments\\CommentController' => __DIR__ . '/..' . '/laravelista/comments/src/CommentController.php',
+        'Laravelista\\Comments\\CommentControllerInterface' => __DIR__ . '/..' . '/laravelista/comments/src/CommentControllerInterface.php',
+        'Laravelista\\Comments\\CommentPolicy' => __DIR__ . '/..' . '/laravelista/comments/src/CommentPolicy.php',
+        'Laravelista\\Comments\\Commentable' => __DIR__ . '/..' . '/laravelista/comments/src/Commentable.php',
+        'Laravelista\\Comments\\Commenter' => __DIR__ . '/..' . '/laravelista/comments/src/Commenter.php',
+        'Laravelista\\Comments\\Events\\CommentCreated' => __DIR__ . '/..' . '/laravelista/comments/src/Events/CommentCreated.php',
+        'Laravelista\\Comments\\Events\\CommentDeleted' => __DIR__ . '/..' . '/laravelista/comments/src/Events/CommentDeleted.php',
+        'Laravelista\\Comments\\Events\\CommentUpdated' => __DIR__ . '/..' . '/laravelista/comments/src/Events/CommentUpdated.php',
+        'Laravelista\\Comments\\ServiceProvider' => __DIR__ . '/..' . '/laravelista/comments/src/ServiceProvider.php',
         'League\\CommonMark\\Block\\Element\\AbstractBlock' => __DIR__ . '/..' . '/league/commonmark/src/Block/Element/AbstractBlock.php',
         'League\\CommonMark\\Block\\Element\\AbstractStringContainerBlock' => __DIR__ . '/..' . '/league/commonmark/src/Block/Element/AbstractStringContainerBlock.php',
         'League\\CommonMark\\Block\\Element\\BlockQuote' => __DIR__ . '/..' . '/league/commonmark/src/Block/Element/BlockQuote.php',
@@ -3397,6 +3524,7 @@ class ComposerStaticInit8d79da342eee01ee1a9baa564a01cda7
         'PHP_Token_XOR_EQUAL' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD_FROM' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
+        'Parsedown' => __DIR__ . '/..' . '/erusev/parsedown/Parsedown.php',
         'PharIo\\Manifest\\Application' => __DIR__ . '/..' . '/phar-io/manifest/src/values/Application.php',
         'PharIo\\Manifest\\ApplicationName' => __DIR__ . '/..' . '/phar-io/manifest/src/values/ApplicationName.php',
         'PharIo\\Manifest\\Author' => __DIR__ . '/..' . '/phar-io/manifest/src/values/Author.php',
@@ -4078,6 +4206,13 @@ class ComposerStaticInit8d79da342eee01ee1a9baa564a01cda7
         'Ramsey\\Uuid\\UuidInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidInterface.php',
         'Ramsey\\Uuid\\Validator\\GenericValidator' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/GenericValidator.php',
         'Ramsey\\Uuid\\Validator\\ValidatorInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/ValidatorInterface.php',
+        'RealRashid\\SweetAlert\\Console\\PublishCommand' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/Console/PublishCommand.php',
+        'RealRashid\\SweetAlert\\Facades\\Alert' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/Facades/Alert.php',
+        'RealRashid\\SweetAlert\\Storage\\AlertSessionStore' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/Storage/AlertSessionStore.php',
+        'RealRashid\\SweetAlert\\Storage\\SessionStore' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/Storage/SessionStore.php',
+        'RealRashid\\SweetAlert\\SweetAlertServiceProvider' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/SweetAlertServiceProvider.php',
+        'RealRashid\\SweetAlert\\ToSweetAlert' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/ToSweetAlert.php',
+        'RealRashid\\SweetAlert\\Toaster' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/Toaster.php',
         'SebastianBergmann\\CodeCoverage\\CodeCoverage' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/CodeCoverage.php',
         'SebastianBergmann\\CodeCoverage\\CoveredCodeNotExecutedException' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Exception/CoveredCodeNotExecutedException.php',
         'SebastianBergmann\\CodeCoverage\\Driver\\Driver' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Driver/Driver.php',
@@ -4190,6 +4325,13 @@ class ComposerStaticInit8d79da342eee01ee1a9baa564a01cda7
         'SebastianBergmann\\Type\\UnknownType' => __DIR__ . '/..' . '/sebastian/type/src/UnknownType.php',
         'SebastianBergmann\\Type\\VoidType' => __DIR__ . '/..' . '/sebastian/type/src/VoidType.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'Spatie\\Honeypot\\EncryptedTime' => __DIR__ . '/..' . '/spatie/laravel-honeypot/src/EncryptedTime.php',
+        'Spatie\\Honeypot\\HoneypotServiceProvider' => __DIR__ . '/..' . '/spatie/laravel-honeypot/src/HoneypotServiceProvider.php',
+        'Spatie\\Honeypot\\HoneypotViewComposer' => __DIR__ . '/..' . '/spatie/laravel-honeypot/src/HoneypotViewComposer.php',
+        'Spatie\\Honeypot\\ProtectAgainstSpam' => __DIR__ . '/..' . '/spatie/laravel-honeypot/src/ProtectAgainstSpam.php',
+        'Spatie\\Honeypot\\SpamDetected' => __DIR__ . '/..' . '/spatie/laravel-honeypot/src/SpamDetected.php',
+        'Spatie\\Honeypot\\SpamResponder\\BlankPageResponder' => __DIR__ . '/..' . '/spatie/laravel-honeypot/src/SpamResponder/BlankPageResponder.php',
+        'Spatie\\Honeypot\\SpamResponder\\SpamResponder' => __DIR__ . '/..' . '/spatie/laravel-honeypot/src/SpamResponder/SpamResponder.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'Symfony\\Component\\Console\\Application' => __DIR__ . '/..' . '/symfony/console/Application.php',
         'Symfony\\Component\\Console\\CommandLoader\\CommandLoaderInterface' => __DIR__ . '/..' . '/symfony/console/CommandLoader/CommandLoaderInterface.php',

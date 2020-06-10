@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class MarketController extends Controller
 {
@@ -25,12 +26,19 @@ class MarketController extends Controller
      */
     public function market()
     {
-        $products = Product::all();
-        return view('pages.market', ['allproducts' => $products]);
+        $products = Product::paginate(20);
+        return view('pages.market')->with(['allproducts' => $products]);
     }
 
     public function product()
     {
-        return view('admin.product.viewproduct');
+        $products = Product::paginate(20);
+        return view('admin.product.viewproduct')->with(['allproducts' => $products]);
+    }
+
+    public function viewproduct($id)
+    {
+        $products = DB::table('products')->where('id', $id)->get();
+        return view('admin.product.viewproduct', compact('products'));
     }
 }

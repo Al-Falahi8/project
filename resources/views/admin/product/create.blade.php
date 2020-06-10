@@ -3,6 +3,11 @@
 @section('content')
 
     <div class="container pt-5 mt-2">
+        @if( session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
 
             {!! Form::open(['route' => 'product.store', 'method' => 'post', 'files' => true]) !!}
             @csrf

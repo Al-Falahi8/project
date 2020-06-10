@@ -1,48 +1,93 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Game Art</title>
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/custom.css')}}">
-</head>
-<body>
-    @include('layouts.navbar')
+@extends('layouts.main')
+@section('title', 'View Product')
+@section('content')
 
-        <div class="super_container">
-            <header class="header" style="display: none;">
-                <div class="header_main">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
-                                <div class="header_search">
-                                    <div class="header_search_content">
-                                        <div class="header_search_form_container">
-                                            <form action="#" class="header_search_form clearfix">
-                                                <div class="custom_dropdown">
-                                                    <div class="custom_dropdown_list"> <span class="custom_dropdown_placeholder clc">All Categories</span> <i class="fas fa-chevron-down"></i>
-                                                        <ul class="custom_list clc">
-                                                            <li><a class="clc" href="#">All Categories</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    <div class="container">
+        @if( session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+        <div class="row">
+
+            @foreach ($products as $product)
+                
+                <div class="col-md-6 col-xs-12">
+                    <div class="thumbnail">
+                        <img src="{{ url('uploads/products/', $product->image) }}" class="card-img">
                     </div>
                 </div>
-            </header>
+
+                <div class="col-md-5 col-md-offset-2">
+                    <div>
+                        <h2><strong>{{ $product->name }}</strong></h2>
+                    </div>
+                    <hr>
+                    <h4>{{ $product->description }}</h4>
+                    <hr>
+                    <br>
+                    
+                    <h2 class="text-danger"><span> € </span> {{ $product->price }} </h2>
+                    <div class="col-xs-6 text-right">
+                        <a href="{{ route('cart.add', $product->id) }}" class="btn btn-dark shop-button ">Add to Cart</a>
+                    </div>
+                </div>
+
+            @endforeach
+
+        </div>
+    </div>
+
+@endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- <body>
+    @include('layouts.navbar')
+
         <div class="single_product">
             <div class="container" style=" background-color: #fff; padding: 11px;">
                 <div class="row">
                     <div class="col-lg-2 order-lg-1 order-2">
                         <ul class="image_list">
-                        <li data-image="{{asset('dist/img/bg1.jpg')}}"><img src="{{asset('dist/img/bg1.jpg')}}" alt=""></li>
+                            <li data-image="{{asset('dist/img/bg1.jpg')}}"><img src="{{asset('dist/img/bg1.jpg')}}" alt=""></li>
                             <li data-image="{{asset('dist/img/bg2.jpg')}}"><img src="{{asset('dist/img/bg2.jpg')}}" alt=""></li>
                             <li data-image="{{asset('dist/img/bg3.jpg')}}"><img src="{{asset('dist/img/bg3.jpg')}}" alt=""></li>
                         </ul>
@@ -85,7 +130,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xs-6"> <button type="button" class="btn btn-primary shop-button">Add to Cart</button> <button type="button" class="btn btn-success shop-button">Buy Now</button>
+                                <div class="col-xs-6"> <button type="button" class="btn btn-primary shop-button">Add to Cart</button>
                                 </div>
                             </div>
                         </div>
@@ -95,42 +140,4 @@
         </div>
     </div>
 
-    @include('layouts.footer')
-
-    <script src={{asset('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js')}}> </script>
-    <!-- jQuery -->
-    <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
-    <!-- jQuery UI 1.11.4 -->
-    <script src="{{asset('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
-    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-    <script>
-        $.widget.bridge('uibutton', $.ui.button)
-    </script>
-    <!-- Bootstrap 4 -->
-    <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <!-- ChartJS -->
-    <script src="{{asset('plugins/chart.js/Chart.min.js')}}"></script>
-    <!-- Sparkline -->
-    <script src="{{asset('plugins/sparklines/sparkline.js')}}"></script>
-    <!-- JQVMap -->
-    <script src="{{asset('plugins/jqvmap/jquery.vmap.min.js')}}"></script>
-    <script src="{{asset('plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
-    <!-- jQuery Knob Chart -->
-    <script src="{{asset('plugins/jquery-knob/jquery.knob.min.js')}}"></script>
-    <!-- daterangepicker -->
-    <script src="{{asset('plugins/moment/moment.min.js')}}"></script>
-    <script src="{{asset('plugins/daterangepicker/daterangepicker.js')}}"></script>
-    <!-- Tempusdominus Bootstrap 4 -->
-    <script src="{{asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
-    <!-- Summernote -->
-    <script src="{{asset('plugins/summernote/summernote-bs4.min.js')}}"></script>
-    <!-- overlayScrollbars -->
-    <script src="{{asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
-    <!-- AdminLTE App -->
-    <script src="{{asset('dist/js/adminlte.js')}}"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="{{asset('dist/js/demo.js')}}"></script>
-    </body>
-</html>
+    @include('layouts.footer') --}}
