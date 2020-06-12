@@ -12,25 +12,29 @@
 
             @foreach ($products as $product)
                 
-                <div class="col-md-6 col-xs-12">
+                <div class="col-lg-4 order-lg-2 order-1">
                     <div class="thumbnail">
-                        <img src="{{ url('uploads/products/', $product->image) }}" class="card-img">
+                        <img src="{{ url('uploads/products/', $product->image) }}" width="100%" height="60%" text="Thumbnail" class="card-img">
                     </div>
                 </div>
 
-                <div class="col-md-5 col-md-offset-2">
+                <div class="col-lg-6 order-3 ml-5">
                     <div>
                         <h2><strong>{{ $product->name }}</strong></h2>
                     </div>
                     <hr>
                     <h4>{{ $product->description }}</h4>
-                    <hr>
                     <br>
-                    
-                    <h2 class="text-danger"><span> € </span> {{ $product->price }} </h2>
-                    <div class="col-xs-6 text-right">
-                        <a href="{{ route('cart.add', $product->id) }}" class="btn btn-dark shop-button ">Add to Cart</a>
+
+                    <div class="row">
+                        <div class="col-xs-6 text-left ml-2">
+                            <h2 class="text-danger"><span> € </span> {{ $product->price }} </h2>
+                        </div>
+                        <div class="col-md-10 text-right">
+                            <a href="{{ route('cart.add', $product->id) }}" class="btn btn-dark shop-button ">Add to Cart</a>
+                        </div>
                     </div>
+
                 </div>
 
             @endforeach
@@ -38,6 +42,61 @@
         </div>
     </div>
 
+    <hr>
+    <div class="row">
+    {{-- <h3 class="ml-3">Comments: {{ $product->comments->count() }}</h3> --}}
+
+    {{-- Comments List --}}
+    <ul class="comments col-6 text-left">
+        {{-- @foreach ($product->comments as $comment) --}}
+            
+        <li class="comment">
+            <div class="row">
+                <div class="card-body text-left">
+                    {{-- <h4>{{ $comment->user->name }}</h4> --}}
+                    <h4>Name</h4>
+                </div>
+                <div class="card-body text-right">
+                    {{-- <p>{{ $comment->created_at->format('d M Y') }}</p> --}}
+                    <p>Created_at</p>
+                </div>
+            </div>
+            
+            {{-- <div>{{ $comment->body }}</div> --}}
+            <div>Body</div>
+        </li>
+        {{-- @endforeach --}}
+    </ul>
+    {{-- Comments List --}}
+
+
+    {{-- Comments Form --}}
+    <div class="card card-default col-6 text-right">
+        <div class="card-header">
+            <div class="card-title">
+                <strong>Add Your Comment</strong>
+            </div>
+        </div>
+        <div class="card-body">
+            @guest
+                <div class="alert alert-danger">Please Login To Comment</div>
+            @else
+            <form action="{{ route('comments.store', $product->id ) }}" method="POST">
+                {{ csrf_field() }}
+                <div class="form-group">
+                    <label for="comment">Comment</label>
+                    <textarea name="body" class="form-control" cols="80" rows="4" placeholder="Enter Your Comment"></textarea>
+                </div>
+                <div class="form-group text-right">
+                    <button type="submit" class="btn btn-dark">Add Comment</button>
+                </div>
+            </form>
+            @endguest
+
+        </div>
+    </div>
+    {{-- Comments Form --}}
+    </div>
 @endsection
 
 

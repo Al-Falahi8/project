@@ -29,24 +29,26 @@
 </head>
 <body>
     <div class="container">
-            <div class="container bg-dark">
-            <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="{{ url('pages.index')}}">Game Art</a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="{{ url('pages.index')}}"><img class="logo pb-2 m-0" src="{{ asset('dist/img/Artboard 2.png')}}" alt="logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <div class="collapse navbar-collapse pt-4" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('pages.about')}}">About Us</a>
+                        <a class="nav-link" href="{{url('pages.index')}}">HOME</a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{url('pages.market')}}">Market <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('pages.about')}}">ABOUT US</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('pages.market')}}">MARKET <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Categories
-                        </a>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" style="ul.navbar-nav.dropdown { background-color: #FF0000; }" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        CATEGORIES
+                    </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         @php
                             $categories = DB::table('categories')->get();
@@ -57,55 +59,53 @@
                     </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('contact')}}">Contact Us</a>
+                        <a class="nav-link" href="{{url('contact')}}">CONTACT US</a>
                     </li>
                 </ul>
-            </div>
-            
-            <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('cart.show') }}">
-                        <span class="fas fa-cart-arrow-down">
-                            ({{ session()->has('cart') ? session()->get('cart')->totalQty : '0' }}) My Cart
+                
+                <!-- Right Side Of Navbar -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('cart.show') }}">
+                            <span class="fas fa-cart-arrow-down">
+                            ({{ session()->has('cart') ? session()->get('cart')->totalQty : '0' }}) MY CART
                         </span>
                     </a>
                 </li>
                 <!-- Authentication Links -->
                 @guest
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                    </li>
-                    @if (Route::has('register'))
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                    </li>
-                    @endif
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                </li>
+                @if (Route::has('register'))
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                </li>
+                @endif
                 @else
                 <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->first_name }} <span class="caret"></span>
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('purchase.index') }}">Your Purchases <i class="fas fa-grip-horizontal ml-1"></i></a>
-                            <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard <i class="fas fa-tachometer-alt ml-3"></i></a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->first_name }} <span class="caret"></span>
+                    </a>
+                    
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('purchase.index') }}">Your Purchases <i class="fas fa-grip-horizontal ml-1"></i></a>
+                        <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard <i class="fas fa-tachometer-alt ml-3"></i></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                                 <i class="fas fa-sign-out-alt ml-5"></i>
                             </a>
-
+                            
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
                         </div>
                     </li>
-                @endguest
-                
-                
+                    @endguest
+                </div>
             </ul>
         </nav>
         </div>

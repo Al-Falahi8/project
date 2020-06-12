@@ -2,35 +2,48 @@
 @section('title', 'Cart Page')
 @section('content')
 
-    <h3>My Cart</h3>
+    <h3 class="ml-3">My Cart</h3>
+    
     <div class="container">
-        <div class="row no-gutters">
+        <div class="row">
             @if($cart)
                 <div class="col-md-8">
-                    @foreach ($cart->items as $product)
-                    <div class="card md-2">
-                        <img src="{{ url('uploads/products/', $product['image']) }}" class="img-left" width="10%" height="80" text="Thumbnail" alt="">
-                            <h5 class="card-title">
-                                {{ $product['name'] }}
-                            </h5>
-                            <div class="card-text align-text">
-                                €{{ $product['price'] }}
-                                <form action="{{ route('product.remove', $product['id']) }}" method="post">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" class="href btn btn-danger btn-ms ml-4 float-right" style="margin-top: -30px;">Remove</button>
-                                </form>
-                            </div>
-                        </div>
-                    @endforeach
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                            @foreach ($cart->items as $product)
+                            <tr>
+                                <th scope="row"></th>
+                                <td><img src="{{ url('uploads/products/', $product['image']) }}" class="img-left" width="100" height="50" text="Thumbnail" alt=""></td>
+                                <td>{{( $product['name'] )}}</td>
+                                <td>€{{( $product['price'] )}}</td>
+                                <td>
+                                    <form action="{{ route('product.remove', $product['id']) }}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="href btn btn-danger btn-ms"><i class="fas fa-trash-alt"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
 
                 <div class="col-md-4">
                     <div class="card text-center">
                         <div class="card-body">
-                            <h3 class="card-title text-center">
+                            <h3 class="card-header text-center bg-default">
                                 Checkout
-                                <hr>
                             </h3>
                             <div class="card-text">
                                 <p>
@@ -39,7 +52,7 @@
                                 <p>
                                     Total Quantity is : {{ $cart->totalQty }}
                                 </p>
-                            <a href="{{ route('cart.checkout', $cart->totalPrice) }}" class="btn btn-dark btn-block">Checkout</a>
+                                <a href="{{ route('cart.checkout', $cart->totalPrice) }}" class="btn btn-dark btn-block">Checkout</a>
                             </div>
                         </div>
                     </div>

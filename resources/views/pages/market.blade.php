@@ -3,7 +3,7 @@
 @section('content')
 
     <br><br><br><br>
-    <div class="container col-lg-12 text-center">
+    <div class="container text-center">
         @if( session()->has('success'))
                     <div class="alert alert-success text-center">
                         {{ session()->get('success') }}
@@ -11,7 +11,7 @@
                 @endif
         <div class="row">
             @foreach ($allproducts as $product)
-                <div class="card bg-dark col-3 mr-1">
+                <div class="card bg-dark col-3">
                     <div class="card mb-3">
                         <img class="card-img-top" src="{{ url('uploads/products/', $product->image) }}" width="100%" height="225" text="Thumbnail" alt="Card image cap">
                     </div>

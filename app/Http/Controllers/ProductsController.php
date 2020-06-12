@@ -6,6 +6,7 @@ use App\Cart;
 use App\Product;
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 
@@ -119,5 +120,11 @@ class ProductsController extends Controller
         } else {
             return redirect()->back();
         }
+    }
+
+    public function show($id)
+    {
+        $item = Product::find($id);
+        return Storage::download($item->path, $item->title);
     }
 }

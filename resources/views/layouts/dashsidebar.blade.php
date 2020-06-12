@@ -3,7 +3,7 @@
     <!-- Brand Logo -->
     <a href="{{url('pages.index')}}" class="brand-link">
         <img src="" alt="" class="brand-image" style="opacity: .8">
-        <span class="brand-text font-weight-light">Game Art</span>
+        <span class="brand-text font-weight-light"><img class="logo p-0 ml-3" src="{{ asset('dist/img/Artboard 2.png')}}" alt="logo"></span>
     </a>
 
     <!-- Sidebar -->
@@ -46,36 +46,17 @@
             <a href="" class="nav-link">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
-                    SubCategories
+                    Categories
                     <i class="fas fa-angle-left right"></i>
-                
                 </p>
             </a>
                 <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>2D Game Assets</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>3D Game Assets</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>GUI Game Assets</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Character</p>
-                        </a>
-                    </li>
+                    @php
+                        $categories = DB::table('categories')->get();
+                    @endphp
+                    @foreach ($categories as $category)
+                        <a class="dropdown-item" href="{{url('categories', $category->id)}}"><i class="far fa-circle nav-icon"></i>{{ ucwords($category->name) }}</a>
+                    @endforeach
                 </ul>
             </li>
         </ul>

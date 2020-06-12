@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class MarketController extends Controller
@@ -39,6 +40,7 @@ class MarketController extends Controller
     public function viewproduct($id)
     {
         $products = DB::table('products')->where('id', $id)->get();
+
         return view('admin.product.viewproduct', compact('products'));
     }
 }

@@ -39,7 +39,7 @@
                         </div>
 
                         <div class="form-group col-md-4">
-                            {{ Form::label('image', 'Upload File') }}
+                            {{ Form::label('image', 'Upload Image') }}
                             {{ Form::file('image', array('class' => 'form-control')) }}
                         </div>
 

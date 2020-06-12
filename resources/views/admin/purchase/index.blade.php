@@ -25,7 +25,12 @@
                         <td>€{{( $item['price'] )}}</td>
                         <td>{{( $item['qty'] )}}</td>
                         <td> Paid </td>
-                        <td><a href="#" type="button" class="btn btn-success">download</a></td>
+                        <td>
+                            <form action="{{ route('down.show', $item['id']) }}" method="POST">
+                                @csrf
+                                <a type="submit" class="btn btn-success"><i class="fas fa-download"></i></a>
+                            </form>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
