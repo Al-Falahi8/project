@@ -44,59 +44,59 @@
 
     <hr>
     <div class="row">
-    {{-- <h3 class="ml-3">Comments: {{ $product->comments->count() }}</h3> --}}
+        <h3 class="ml-3">Comments: {{ $product->comments->count() }}</h3>
 
-    {{-- Comments List --}}
-    <ul class="comments col-6 text-left">
-        {{-- @foreach ($product->comments as $comment) --}}
-            
-        <li class="comment">
-            <div class="row">
-                <div class="card-body text-left">
-                    {{-- <h4>{{ $comment->user->name }}</h4> --}}
-                    <h4>Name</h4>
+        {{-- Comments List --}}
+        <ul class="comments col-5 text-left">
+            @foreach ($product->comments as $comment)
+                
+            <li class="comment">
+                <div class="row">
+                    <div class="card-body text-left">
+                        <h4>{{ $comment->user->name }}</h4>
+                        
+                    </div>
+                    <div class="card-body text-right">
+                        <p>{{ $comment->created_at->format('d M Y') }}</p>
+                    </div>
                 </div>
-                <div class="card-body text-right">
-                    {{-- <p>{{ $comment->created_at->format('d M Y') }}</p> --}}
-                    <p>Created_at</p>
+                
+                <div>{{ $comment->body }}</div>
+            </li>
+            @endforeach
+        </ul>
+        {{-- Comments List --}}
+        
+
+        {{-- Comments Form --}}
+        <div class="col-6 text-right">
+            <div class="card card-default">
+                <div class="card-header">
+                    <div class="card-title">
+                        <strong>Add Your Comment</strong>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @guest
+                        <div class="alert alert-danger">Please Login To Comment</div>
+                    @else
+                    <form action="{{ route('comments.store', $product->id ) }}" method="POST">
+                        {{ csrf_field() }}
+                        <div class="form-group">
+                            <label for="comment">Comment</label>
+                            <textarea name="body" class="form-control" cols="80" rows="4" placeholder="Enter Your Comment"></textarea>
+                        </div>
+                        <div class="form-group text-right">
+                            <button type="submit" class="btn btn-dark">Add Comment</button>
+                        </div>
+                    </form>
+                    @endguest
+                
                 </div>
             </div>
-            
-            {{-- <div>{{ $comment->body }}</div> --}}
-            <div>Body</div>
-        </li>
-        {{-- @endforeach --}}
-    </ul>
-    {{-- Comments List --}}
-
-
-    {{-- Comments Form --}}
-    <div class="card card-default col-6 text-right">
-        <div class="card-header">
-            <div class="card-title">
-                <strong>Add Your Comment</strong>
-            </div>
-        </div>
-        <div class="card-body">
-            @guest
-                <div class="alert alert-danger">Please Login To Comment</div>
-            @else
-            <form action="{{ route('comments.store', $product->id ) }}" method="POST">
-                {{ csrf_field() }}
-                <div class="form-group">
-                    <label for="comment">Comment</label>
-                    <textarea name="body" class="form-control" cols="80" rows="4" placeholder="Enter Your Comment"></textarea>
-                </div>
-                <div class="form-group text-right">
-                    <button type="submit" class="btn btn-dark">Add Comment</button>
-                </div>
-            </form>
-            @endguest
-
         </div>
     </div>
     {{-- Comments Form --}}
-    </div>
 @endsection
 
 

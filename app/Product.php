@@ -8,7 +8,7 @@ class Product extends Model
 {
     protected $fillable = ['name', 'description', 'image', 'price', 'category_id'];
 
-    public function comment()
+    public function comments()
     {
         return $this->hasMany(Comment::class);
     }

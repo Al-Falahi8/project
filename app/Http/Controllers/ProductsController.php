@@ -6,6 +6,7 @@ use App\Cart;
 use App\Product;
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
@@ -122,9 +123,11 @@ class ProductsController extends Controller
         }
     }
 
-    public function show($id)
+    public function download()
     {
-        $item = Product::find($id);
-        return Storage::download($item->path, $item->title);
+        $item = DB::table('products')->get();
+        //return response()->download(storage_path("app/uploads/", $item));
+
+        return view('admin.purchase.index', compact('item'));
     }
 }

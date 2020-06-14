@@ -34,8 +34,26 @@
             </li>
 
             <li class="nav-item has-treeview menu-open">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-tasks"></i>
+                    <p>
+                        Managment
+                    </p>
+                </a>
+            </li>
+
+            <li class="nav-item has-treeview menu-open">
+                <a href="" class="nav-link">
+                    <i class="nav-icon fas fa-users"></i>
+                    <p>
+                        Users
+                    </p>
+                </a>
+            </li>
+
+            <li class="nav-item has-treeview menu-open">
                 <a href="{{ route('Product') }}" class="nav-link">
-                    <i class="nav-icon fas fa-copy"></i>
+                    <i class="nav-icon fas fa-plus-square"></i>
                     <p>
                         Add Assets
                     </p>
@@ -58,6 +76,27 @@
                         <a class="dropdown-item" href="{{url('categories', $category->id)}}"><i class="far fa-circle nav-icon"></i>{{ ucwords($category->name) }}</a>
                     @endforeach
                 </ul>
+            </li>
+
+            <li class="nav-item has-treeview menu-open">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-user"></i>
+                    <p>
+                        Profile
+                    </p>
+                </a>
+            </li>
+
+            <li class="nav-item has-treeview menu-open">
+                <a class="nav-link" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                    <i class="nav-icon fas fa-power-off"></i>
+                        {{ __('Logout') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
             </li>
         </ul>
     </nav>

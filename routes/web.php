@@ -35,9 +35,9 @@ Route::post('contact', 'ContactController@store')->name('contact.store');
 
 Route::namespace('Admin')->prefix('admin')->name('admin')->group(function () {
     Route::resource('/users', 'UsersController', ['except' => ['show', 'create', 'store']]);
-    // Route::group(['middleware' => ['admin']], function () {
-    //     Route::get('admin.dashboard', 'AdminController@dashboard');
-    // });
+    //     // Route::group(['middleware' => ['admin']], function () {
+    //     //     Route::get('admin.dashboard', 'AdminController@dashboard');
+    //     // });
 });
 
 
@@ -57,7 +57,7 @@ Route::get('admin/product.addToCart/{product}', 'ProductsController@addToCart')-
 
 // cart route
 Route::get('/shoping-cart', 'ProductsController@showCart')->name('cart.show');
-Route::get('/shoping-cart/{id}', 'ProductsController@show')->name('down.show');
+Route::get('/purchase.index', 'ProductsController@download')->name('down.show');
 Route::get('/checkout/{amount}', 'ProductsController@checkout')->name('cart.checkout')->middleware('auth');
 Route::post('/charge', 'ProductsController@charge')->name('cart.charge');
 Route::delete('admin/product/{product}', 'ProductsController@destroy')->name('product.remove');

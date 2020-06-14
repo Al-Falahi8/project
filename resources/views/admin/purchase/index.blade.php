@@ -18,7 +18,7 @@
                 </thead>
                 
                 <tbody>
-                    @foreach ($cart->items as $item)
+                    @forelse ($cart->items as $item)
                     <tr>
                         <th scope="row"></th>
                         <td>{{( $item['name'] )}}</td>
@@ -26,13 +26,12 @@
                         <td>{{( $item['qty'] )}}</td>
                         <td> Paid </td>
                         <td>
-                            <form action="{{ route('down.show', $item['id']) }}" method="POST">
-                                @csrf
-                                <a type="submit" class="btn btn-success"><i class="fas fa-download"></i></a>
-                            </form>
+                            <a href="uploads/products/{{$item['image']}}" download="{{$item['image']}}" class="btn btn-success"><i class="fas fa-download"></i></a>
                         </td>
                     </tr>
-                    @endforeach
+                    @empty
+                        <p>No purchases</p>
+                    @endforelse
                 </tbody>
             </table>
             <p class="badge badge-pill badge-dark bm-3 p-3 text-white">Total Price : € {{ $cart->totalPrice}}</p>

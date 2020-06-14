@@ -16,18 +16,5 @@
             <a href="{{url('pages.contact')}}" class="nav-link">CONTACT US</a>
         </li>
     </ul>
-
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('logout') }}"
-                onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}<i class="fas fa-sign-out-alt ml-3"></i>
-                </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
-        </li>
-    </ul>
 </nav>
 <!-- /.navbar -->

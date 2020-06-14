@@ -15,6 +15,7 @@
     <link href="{{ asset('dists/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     {{-- <link href="{{ asset('css/contact.css')}}" rel="stylesheet"> --}}
+    <link href="{{ asset('css/toaster.min.css')}}" rel="stylesheet">
     <link href="{{ asset('css/comments.css')}}" rel="stylesheet">
     @yield('style')
     {{-- <link href="{{ asset('custom-css/about.css') }}" rel="stylesheet">
@@ -40,7 +41,16 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{asset('dists/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/toastr.min.js')}}"></script>
     <script src="{{asset('dists/js/bootstrap.bundle.min.js')}}"></script>
+
+    {{-- <script>
+
+        @if(Session::has('success')) 
+            toastr.success("{{ Session::get('success') }}");
+        @endif
+
+    </script> --}}
 
 </body>
 </html>
