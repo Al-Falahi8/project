@@ -19,7 +19,7 @@
                     <form action="{{ route('updateAvatar') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <p><input type="file"  accept="image/*" name="avatar" id="file"  onchange="loadFile(event)" style="display: none;"></p>
-                        <p><label for="file" style="cursor: pointer;"><img class="profile-user-img img-fluid img-circle" id="output" src="uploads/avatar/{{ $user->avatar }}" style="width: 120px; height: 120px;" alt="User profile picture"></label></p>
+                        <p><label for="file" style="cursor: pointer;"><img class="profile-user-img img-fluid img-circle" id="output" src="/gameart/public/uploads/avatar/{{ $user->avatar }}" style="width: 120px; height: 120px;" alt="User profile picture"></label></p>
                         
                         <script>
                             var loadFile = event => {

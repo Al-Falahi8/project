@@ -26,6 +26,7 @@ class UsersController extends Controller
 
     public function updateAvatar(Request $request)
     {
+        // $userUpdate = new UserUpdate;
         if ($request->hasFile('avatar')) {
             $avatar = $request->file('avatar');
             $fileName = time() . '.' . $avatar->getClientOriginalExtension();
@@ -36,16 +37,15 @@ class UsersController extends Controller
             $user->save();
         }
 
-        return redirect()->route('userProfile')->with('success', 'Photo has been successfully added');
 
         $user = Auth::user();
 
-        $user->first_name = $request['first_name'];
-        $user->last_name = $request['last_name'];
-        $user->email = $request['email'];
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->email = $request->email;
         $user->save();
 
-        return back();
+        return redirect()->route('userProfile')->with('success', 'Photo has been successfully added');
     }
 
     public function usersTable()

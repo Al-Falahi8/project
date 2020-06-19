@@ -14,7 +14,7 @@
                 
                 <div class="col-lg-4 order-lg-2 order-1">
                     <div class="thumbnail">
-                        <img src="{{ url('uploads/products/', $product->image) }}" width="100%" height="60%" text="Thumbnail" class="card-img">
+                        <img src="{{ url('uploads/products/', $product->image) }}" width="100%" height="250px" text="Thumbnail" class="card-img">
                     </div>
                 </div>
 
@@ -60,7 +60,10 @@
                     </div>
                 </div>
                 
-                <div>{{ $comment->body }}</div>
+                <div>
+                    <img src="/gameart/public/uploads/avatar/{{ Auth::user()->avatar }}" style="width: 32px; height: 32px; bottom: 1px; left:10px; border-radius:50%;" alt="User Image">
+                    {{ $comment->body }}
+                </div>
             </li>
             @endforeach
         </ul>
