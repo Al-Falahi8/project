@@ -30,7 +30,7 @@
             </div>
     </div> --}}
     
-    <div class="flex-center position-ref full-height pt-5">
+    <div class="flex-center position-ref full-height pt-5 mb-5">
             
             <div class="content">
                 <div class="title m-b-md">

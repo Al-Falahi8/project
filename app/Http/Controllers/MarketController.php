@@ -39,7 +39,7 @@ class MarketController extends Controller
 
     public function viewproduct($id)
     {
-        $products = Product::with('comments')->where('id', $id)->get();
+        $products = Product::with('discussions')->where('id', $id)->get();
 
         return view('admin.product.viewproduct', compact('products'));
     }

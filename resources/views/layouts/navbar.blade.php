@@ -84,19 +84,20 @@
                 @endif
                 @else
                 <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="position: relative; padding-left: 50px;">
+                        <img src="uploads/avatar/{{ Auth::user()->avatar }}" style="width: 32px; height: 32px; position:absolute; bottom: 5px; left:10px; border-radius:50%;">
                         {{ Auth::user()->first_name }} <span class="caret"></span>
                     </a>
                     
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('purchase.index') }}">Your Purchases <i class="fas fa-grip-horizontal ml-1"></i></a>
-                        <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard <i class="fas fa-tachometer-alt ml-3"></i></a>
+                        <a class="dropdown-item" href="{{ route('purchase.index') }}"><i class="fas fa-grip-horizontal mr-3"></i>Your Purchases</a>
+                        <a class="dropdown-item" href="{{ route('dashboard') }}"><i class="fas fa-tachometer-alt mr-3"></i>Dashboard</a>
+                        <a class="dropdown-item" href="{{ route('userProfile') }}"><i class="fas fa-user mr-3"></i>Profile</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                                <i class="fas fa-sign-out-alt ml-5"></i>
+                                <i class="fas fa-power-off mr-3"></i>{{ __('Logout') }}
                             </a>
                             
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

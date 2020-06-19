@@ -8,9 +8,9 @@ class Product extends Model
 {
     protected $fillable = ['name', 'description', 'image', 'price', 'category_id'];
 
-    public function comments()
+    public function discussions()
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Discussion::class);
     }
 
     public function category()

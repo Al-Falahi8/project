@@ -44,17 +44,16 @@
 
     <hr>
     <div class="row">
-        <h3 class="ml-3">Comments: {{ $product->comments->count() }}</h3>
+        <h3 class="ml-3">Comments: {{ $product->discussions->count() }}</h3>
 
         {{-- Comments List --}}
         <ul class="comments col-5 text-left">
-            @foreach ($product->comments as $comment)
+            @foreach ($product->discussions as $comment)
                 
             <li class="comment">
                 <div class="row">
                     <div class="card-body text-left">
                         <h4>{{ $comment->user->name }}</h4>
-                        
                     </div>
                     <div class="card-body text-right">
                         <p>{{ $comment->created_at->format('d M Y') }}</p>
@@ -80,7 +79,7 @@
                     @guest
                         <div class="alert alert-danger">Please Login To Comment</div>
                     @else
-                    <form action="{{ route('comments.store', $product->id ) }}" method="POST">
+                    <form action="{{ route('discussion.store', $product->id ) }}" method="POST">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label for="comment">Comment</label>

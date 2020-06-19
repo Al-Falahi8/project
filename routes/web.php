@@ -21,7 +21,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
+// dashboard route
 Route::get('admin.dashboard', 'DashboardController@dashboard')->name('dashboard');
+Route::get('admin.dashboard', 'DashboardController@productsTable')->name('dashboard');
 
 // pages route
 Route::get('pages.index', 'HomeController@index')->name('Game Art');
@@ -35,10 +37,17 @@ Route::post('contact', 'ContactController@store')->name('contact.store');
 
 Route::namespace('Admin')->prefix('admin')->name('admin')->group(function () {
     Route::resource('/users', 'UsersController', ['except' => ['show', 'create', 'store']]);
-    //     // Route::group(['middleware' => ['admin']], function () {
-    //     //     Route::get('admin.dashboard', 'AdminController@dashboard');
-    //     // });
+    // Route::group(['middleware' => ['admin']], function () {
+    //     Route::get('admin.dashboard', 'AdminController@dashboard');
+    // });
 });
+
+// User route
+Route::get('users', 'UsersController@usersTable')->name('userTable');
+Route::get('profile', 'UsersController@profile')->name('userProfile');
+
+// Profile routes
+Route::post('admin/profile.index', 'UsersController@updateAvatar')->name('updateAvatar');
 
 
 // categories route
@@ -49,7 +58,7 @@ Route::get('categories/{id}', 'CategoriesController@show')->name('categories');
 Route::get('admin/product.create', 'ProductsController@index')->name('Product');
 Route::post('admin/product', 'ProductsController@store')->name('Create');
 
-Route::post('/admin/product.viewproduct/{id}', 'CommentsController@store')->name('comments.store');
+Route::post('/admin/product.viewproduct/{id}', 'DiscussionController@store')->name('discussion.store');
 
 Route::get('admin/product.viewproduct', 'MarketController@product')->name('ViewProduct');
 Route::get('/admin/product.viewproduct/{id}', 'MarketController@viewproduct')->name('DetailProduct');

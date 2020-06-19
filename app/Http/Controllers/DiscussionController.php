@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use App\Comment;
 use App\Product;
+use App\Discussion;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-class CommentsController extends Controller
+class DiscussionController extends Controller
 {
     public function __construct()
     {
@@ -28,12 +28,12 @@ class CommentsController extends Controller
         //Current User
         $userId = Auth::id();
 
-        $comment = new Comment();
-        $comment->body = $request->body;
-        $comment->product()->associate($product);
-        $comment->user_id = $userId;
+        $discussion = new Discussion();
+        $discussion->body = $request->body;
+        $discussion->product()->associate($product);
+        $discussion->user_id = $userId;
 
-        $comment->save();
+        $discussion->save();
 
         return redirect()->route('DetailProduct', $id)->with('success', 'Commet Has Been Added Successfully');
     }

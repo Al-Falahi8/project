@@ -50,7 +50,7 @@ class ProductsController extends Controller
 
 
         Product::create($formInput);
-        return redirect()->route('dashboard')->with('success', 'Asset has been successful added. Thank you');
+        return redirect()->route('dashboard')->with('success', 'Asset has been successfully added. Thank you');
         //     return redirect('/admin.dashboard')->with('success', 'Assets have been added successfully');
     }
 

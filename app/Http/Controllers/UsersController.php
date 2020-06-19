@@ -1,0 +1,56 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\User;
+use App\Profile;
+use Illuminate\Http\Request;
+
+use App\Http\Requests\UserUpdate;
+use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
+use Illuminate\Contracts\Session\Session;
+
+class UsersController extends Controller
+{
+    public function index()
+    {
+        $users = User::paginate(5);
+        return view('admin.users.index')->with(['users' => $users]);
+    }
+
+    public function profile()
+    {
+        return view('admin.profile.index', ['user' => Auth::user()]);
+    }
+
+    public function updateAvatar(Request $request)
+    {
+        if ($request->hasFile('avatar')) {
+            $avatar = $request->file('avatar');
+            $fileName = time() . '.' . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(300, 300)->save(public_path('uploads/avatar/' . $fileName));
+
+            $user = Auth::user();
+            $user->avatar = $fileName;
+            $user->save();
+        }
+
+        return redirect()->route('userProfile')->with('success', 'Photo has been successfully added');
+
+        $user = Auth::user();
+
+        $user->first_name = $request['first_name'];
+        $user->last_name = $request['last_name'];
+        $user->email = $request['email'];
+        $user->save();
+
+        return back();
+    }
+
+    public function usersTable()
+    {
+        $users = User::paginate(5);
+        return view('admin.users.index', compact('users'));
+    }
+}

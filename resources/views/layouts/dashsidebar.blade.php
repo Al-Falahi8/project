@@ -10,8 +10,8 @@
     <div class="sidebar">
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-            <img src="{{asset('dist/img/avatar04.png')}}" class="img-circle elevation-2" alt="User Image">
+        <div class="image" style="position: relative; padding-left: 50px;">
+            <img src="uploads/avatar/{{ Auth::user()->avatar }}" style="width: 32px; height: 32px; position:absolute; bottom: 1px; left:10px; border-radius:50%;" alt="User Image">
         </div>
 
         <div class="info">
@@ -34,16 +34,7 @@
             </li>
 
             <li class="nav-item has-treeview menu-open">
-                <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-tasks"></i>
-                    <p>
-                        Managment
-                    </p>
-                </a>
-            </li>
-
-            <li class="nav-item has-treeview menu-open">
-                <a href="" class="nav-link">
+                <a href="{{ route('userTable')}}" class="nav-link">
                     <i class="nav-icon fas fa-users"></i>
                     <p>
                         Users
@@ -79,10 +70,10 @@
             </li>
 
             <li class="nav-item has-treeview menu-open">
-                <a href="#" class="nav-link">
+                <a href="{{ route('userProfile')}}" class="nav-link">
                     <i class="nav-icon fas fa-user"></i>
                     <p>
-                        Profile
+                        Profile/Edit
                     </p>
                 </a>
             </li>

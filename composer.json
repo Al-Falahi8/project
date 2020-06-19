@@ -11,6 +11,7 @@
         "php": "^7.2.5",
         "cartalyst/stripe-laravel": "^12.0",
         "fideloper/proxy": "^4.2",
+        "filp/whoops": "^2.7",
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
         "intervention/image": "^2.5",
