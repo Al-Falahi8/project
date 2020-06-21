@@ -36,11 +36,7 @@
                 <div class="row">
                     <div class="">
                         <span class="float-left text-muted ml-5 mr-3">
-                            @if ($user->admin)
-                                Admin
-                            @else
-                                User
-                            @endif
+                            {{ implode( ' | ', $user->roles()->get()->pluck('name')->toArray() ) }}
                         </span>
                     
                         <div class="float-right text-muted ml-5 mr-2"><small>Joined on : {{ Auth::user()->created_at->format('d M Y') }}</small></div>

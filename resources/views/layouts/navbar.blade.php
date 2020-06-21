@@ -91,7 +91,10 @@
                     
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('purchase.index') }}"><i class="fas fa-grip-horizontal mr-3"></i>Your Purchases</a>
-                        <a class="dropdown-item" href="{{ route('dashboard') }}"><i class="fas fa-tachometer-alt mr-3"></i>Dashboard</a>
+                        @can('manage-users')
+                            <a class="dropdown-item" href="{{ route('dashboard') }}"><i class="fas fa-tachometer-alt mr-3"></i>Dashboard</a>
+                        @endcan
+                        <a class="dropdown-item" href="{{ route('Product') }}"><i class="fas fa-plus-square mr-3"></i>Add Asset</a>
                         <a class="dropdown-item" href="{{ route('userProfile') }}"><i class="fas fa-user mr-3"></i>Profile</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('logout') }}"

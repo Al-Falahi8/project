@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -35,16 +36,14 @@ Route::get('contact', 'ContactController@create')->name('contact.create');
 Route::post('contact', 'ContactController@store')->name('contact.store');
 
 
-Route::namespace('Admin')->prefix('admin')->name('admin')->group(function () {
+Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function () {
     Route::resource('/users', 'UsersController', ['except' => ['show', 'create', 'store']]);
-    // Route::group(['middleware' => ['admin']], function () {
-    //     Route::get('admin.dashboard', 'AdminController@dashboard');
-    // });
 });
 
 // User route
-Route::get('users', 'UsersController@usersTable')->name('userTable');
 Route::get('profile', 'UsersController@profile')->name('userProfile');
+Route::get('admin.users.edit', 'UsersController@editUsers')->name('users.edit');
+
 
 // Profile routes
 Route::post('admin/profile.index', 'UsersController@updateAvatar')->name('updateAvatar');

@@ -1,6 +1,10 @@
 <?php
 
+use App\Role;
+use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UsersTableSeeder extends Seeder
 {
@@ -11,20 +15,29 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        // App\User::create([
-        //     'first_name'    =>  'Mustafa',
-        //     'Last_name'     =>  'Al-Falahi',
-        //     'email'         =>  'mostafa_alfalahi@yahoo.com',
-        //     'password'      =>  bcrypt('Mustafa'),
-        //     'admin'         =>  1,
-        // ]);
+        User::truncate();
+        DB::table('role_user')->truncate();
 
-        // App\Profile::create([
-        //     'user_id'   =>  $user->id,
-        //     'avatar'    =>  'uploads/avatar/1.png',
-        //     'about'     =>  'Tell us something about you!',
-        //     'facebook'  =>  'facebook.com',
-        //     'twitter'   =>  'twitter.com',
-        // ]);
+        $adminRole = Role::where('name', 'admin')->first();
+        $userRole = Role::where('name', 'user')->first();
+
+        $admin = User::create([
+            'first_name'    =>  'Mustafa',
+            'last_name'     =>  'Al-Falahi',
+            'email'         =>  'mostafa_alfalahi@yahoo.com',
+            'password'      =>  Hash::make('test1234'),
+            'avatar'        =>  'default.png'
+        ]);
+
+        $user = User::create([
+            'first_name'    =>  'User',
+            'last_name'     =>  'User1',
+            'email'         =>  'user@user.com',
+            'password'      =>  Hash::make('test1234'),
+            'avatar'        =>  'default.png'
+        ]);
+
+        $admin->roles()->attach($adminRole);
+        $user->roles()->attach($userRole);
     }
 }

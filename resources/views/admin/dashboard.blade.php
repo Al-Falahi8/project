@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 @section('title', 'User Dashboard')
 @section('content')
-
+@can('manage-users')
     <div class="container">
         <div class="row mb-2">
             <div class="col-sm-6">
@@ -75,8 +75,8 @@
                                 <td><img src="{{ url('uploads/products/', $product['image']) }}" class="img-left" width="100" height="50" text="Thumbnail" alt=""></td>
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->price }}</td>
-                                <td><a href="#" class="btn btn-success"><i class="fas fa-trash-alt"></i></a></td>
-                                <td><a href="#" class="btn btn-danger"><i class="fas fa-edit"></i></a></td>
+                                <td><a href="#" class="btn btn-success"><i class="fas fa-edit"></i></a></td>
+                                <td><a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
                             </tr>
                         @endforeach
                         </div>
@@ -86,5 +86,5 @@
             </div>
         </div>
     </div>
-
+@endcan
 @endsection

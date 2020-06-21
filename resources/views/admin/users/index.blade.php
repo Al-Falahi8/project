@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-@section('title', 'User Dashboard')
+@section('title', 'Users Table')
 @section('content')
 
     <div class="container mt-5">
@@ -7,12 +7,13 @@
             <div class="table col-12 text-left">
                 <table class="table table-hover">
                     <thead class="thead-dark">
-                        <th>#</th>
-                        <th>Image</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
-                        <th>Delete</th>
+                        <th scope="col">#</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Roles</th>
+                        <th scope="col">Actions</th>
                     </thead>
 
                     <tbody>
@@ -20,11 +21,21 @@
                             @foreach ($users as $user)
                                 <tr>
                                     <td>{{ $user->id }}</td>
-                                    <td><img src="{{ $user->avatar }}" style="width: 32px; height: 32px; position:absolute; bottom: 1px; left:10px; border-radius:50%;"></td>
+                                    <td><img src="/gameart/public/uploads/avatar/{{ $user->avatar }}" style="width: 32px; height: 32px; bottom: 1px; left:10px; border-radius:50%;"></td>
                                     <td>{{ $user->first_name }}</td>
                                     <td>{{ $user->last_name }}</td>
                                     <td>{{ $user->email }}</td>
-                                    <td><a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
+                                    <td>{{ implode( ' | ', $user->roles()->get()->pluck('name')->toArray() ) }}</td>
+                                    <td>
+                                        @can('edit-users')
+                                            <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-success float-left"><i class="fas fa-edit"></i></a>
+                                        @endcan
+                                        <form action="{{ route('admin.users.destroy', $user) }}" method="POST" class="float-left">
+                                            @csrf
+                                            {{ method_field('DELETE') }}
+                                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </div>

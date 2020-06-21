@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function index()
-    {
-        return view('pages.index');
-    }
+    // public function index()
+    // {
+    //     return view('pages.index');
+    // }
 
     // public function login(Request $request)
     // {

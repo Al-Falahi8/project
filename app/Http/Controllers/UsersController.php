@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Role;
 use App\User;
 use App\Profile;
-use Illuminate\Http\Request;
 
+use Illuminate\Http\Request;
 use App\Http\Requests\UserUpdate;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
@@ -13,10 +14,9 @@ use Illuminate\Contracts\Session\Session;
 
 class UsersController extends Controller
 {
-    public function index()
+    public function __construct()
     {
-        $users = User::paginate(5);
-        return view('admin.users.index')->with(['users' => $users]);
+        $this->middleware('auth');
     }
 
     public function profile()
@@ -26,7 +26,6 @@ class UsersController extends Controller
 
     public function updateAvatar(Request $request)
     {
-        // $userUpdate = new UserUpdate;
         if ($request->hasFile('avatar')) {
             $avatar = $request->file('avatar');
             $fileName = time() . '.' . $avatar->getClientOriginalExtension();
@@ -45,12 +44,6 @@ class UsersController extends Controller
         $user->email = $request->email;
         $user->save();
 
-        return redirect()->route('userProfile')->with('success', 'Photo has been successfully added');
-    }
-
-    public function usersTable()
-    {
-        $users = User::paginate(5);
-        return view('admin.users.index', compact('users'));
+        return redirect()->route('userProfile', compact('user'))->with('success', 'Photo has been successfully added');
     }
 }
