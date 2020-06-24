@@ -56,16 +56,16 @@
     <hr>
 
     <div class="container mt-5">
+        <h3 class="mb-3 text-dark">Product Table</h3>
         <div class="row">
             <div class="table col-12 text-right">
                 <table class="table table-hover">
                     <thead class="thead-dark">
-                        <th>#</th>
+                        <th>ID</th>
                         <th>Image</th>
                         <th>Name</th>
                         <th>Price</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th>Action</th>
                     </thead>
                     <tbody>
                         <div class="row">
@@ -75,8 +75,10 @@
                                 <td><img src="{{ url('uploads/products/', $product['image']) }}" class="img-left" width="100" height="50" text="Thumbnail" alt=""></td>
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->price }}</td>
-                                <td><a href="#" class="btn btn-success"><i class="fas fa-edit"></i></a></td>
-                                <td><a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
+                                <td>
+                                    <a href="#" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                                    <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                </td>
                             </tr>
                         @endforeach
                         </div>

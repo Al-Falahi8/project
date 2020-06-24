@@ -1,8 +1,9 @@
 @extends('layouts.dashboard')
-@section('title', 'Categories')
+@section('title', 'Create Products')
 @section('content')
 
     <div class="container pt-5 mt-2">
+        <h1 class="mb-3 text-dark">Assets</h1>
         @if( session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}

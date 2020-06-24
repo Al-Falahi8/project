@@ -1,17 +1,28 @@
-<footer>
-    <div class="container fixed-bottom">
-        <div class="footer bg-dark">
-            <div class="row justify-content-center">
-                <div class="col-sm-12 col-md-6">
-                    <p class="text-justify">GameArt.com<i> Design your Game easier </i></p>
-                </div>
-            
+<!-- Footer -->
+    <footer class="container page-footer bottom font-small bg-dark">
 
-                <div class="col-md-8 col-sm-6 col-xs-12">
-                    <p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by <a href="#">Al-Falahi</a>.
-                    </p>
-                </div>
-            </div>
+        <!-- Footer Elements -->
+        <div class="container">
+
+            <!-- Call to action -->
+            <ul class="list-unstyled list-inline text-center">
+            <li class="list-inline-item">
+                <h5 class="mb-1">Join Game Art for free</h5>
+            </li>
+            <li class="list-inline-item">
+                <a href="#!" class="btn btn-outline-white">Sign up!</a>
+            </li>
+            </ul>
+            <!-- Call to action -->
+
         </div>
-    </div>
-</footer>
+        <!-- Footer Elements -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center">© 2020 Copyright:
+            <a href=""> Al-Falahi </a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+<!-- Footer -->

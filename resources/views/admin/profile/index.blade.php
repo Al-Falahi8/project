@@ -12,6 +12,7 @@
 @section('content')
 
 <div class="container mt-4">
+    <h1 class="mb-3 text-dark">Profile</h1>
     <div class="row">
         <div class="card card-dark card-outline col-4">
             <div class="card-body box-profile">
@@ -82,7 +83,7 @@
 
                 <div class="tab-content pt-3">
                     <div class="tab-pane active">
-                        <form class="form" action="{{ route('updateAvatar') }}" method="POST">
+                        <form class="form" action="{{ route('updateUserProfile') }}" method="POST">
                             @csrf
                             <div class="row">
                                 <div class="col-12">

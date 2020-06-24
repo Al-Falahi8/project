@@ -37,13 +37,13 @@
             <div class="collapse navbar-collapse pt-4" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('pages.index')}}">HOME</a>
+                        <a class="nav-link" href="{{ url('pages.index')}}">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('pages.about')}}">ABOUT US</a>
+                        <a class="nav-link" href="{{ url('pages.about')}}">ABOUT US</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('pages.market')}}">MARKET <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ url('pages.market')}}">MARKET <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" style="ul.navbar-nav.dropdown { background-color: #FF0000; }" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

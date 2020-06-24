@@ -9,11 +9,27 @@ use Illuminate\Http\Request;
 class CategoriesController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function index()
+    {
+        $categories = Category::all();
+        return view('admin.categories.index', compact('categories'));
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function categories()
     {
         $categories = Category::all();
         return view('admin.categories.categories', compact('categories'));
@@ -26,7 +42,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
@@ -35,9 +51,12 @@ class CategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Category $category)
     {
-        //
+        $category->name = $request->name;
+        $category->save();
+
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -59,9 +78,11 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        //
+        $arr['Category'] = $category;
+
+        return view('admin.categories.edit')->with('$arr');
     }
 
     /**
@@ -71,7 +92,7 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
     }
@@ -84,6 +105,8 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Category::destroy($id);
+
+        return redirect()->route('categories.index');
     }
 }

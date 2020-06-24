@@ -34,8 +34,13 @@ class UsersController extends Controller
             $user = Auth::user();
             $user->avatar = $fileName;
             $user->save();
-        }
 
+            return back();
+        }
+    }
+
+    public function updateUserProfile(UserUpdate $request)
+    {
 
         $user = Auth::user();
 

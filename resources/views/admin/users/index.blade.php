@@ -2,12 +2,14 @@
 @section('title', 'Users Table')
 @section('content')
 
+
     <div class="container mt-5">
+        <h1 class="mb-3 text-dark">Users</h1>
         <div class="row">
             <div class="table col-12 text-left">
                 <table class="table table-hover">
                     <thead class="thead-dark">
-                        <th scope="col">#</th>
+                        <th scope="col">ID</th>
                         <th scope="col">Image</th>
                         <th scope="col">First Name</th>
                         <th scope="col">Last Name</th>
@@ -45,4 +47,5 @@
             </div>
         </div>
     </div>
-@endsection
+
+    @endsection

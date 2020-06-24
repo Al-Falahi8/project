@@ -35,7 +35,7 @@ Route::get('pages.market', 'MarketController@market')->name('market');
 Route::get('contact', 'ContactController@create')->name('contact.create');
 Route::post('contact', 'ContactController@store')->name('contact.store');
 
-
+// admin route
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function () {
     Route::resource('/users', 'UsersController', ['except' => ['show', 'create', 'store']]);
 });
@@ -46,22 +46,30 @@ Route::get('admin.users.edit', 'UsersController@editUsers')->name('users.edit');
 
 
 // Profile routes
-Route::post('admin/profile.index', 'UsersController@updateAvatar')->name('updateAvatar');
+Route::post('admin/profile', 'UsersController@updateAvatar')->name('updateAvatar');
+Route::post('admin/profile.index', 'UsersController@updateUserProfile')->name('updateUserProfile');
 
 
 // categories route
-Route::get('categories', 'CategoriesController@index')->name('categories');
+Route::get('categories', 'CategoriesController@categories')->name('categories');
+Route::get('categories/index', 'CategoriesController@index')->name('categories.index');
+Route::get('categories/create', 'CategoriesController@create')->name('categories.create');
+Route::post('categories', 'CategoriesController@store')->name('categories.store');
 Route::get('categories/{id}', 'CategoriesController@show')->name('categories');
+Route::get('categories/{id}/edit', 'CategoriesController@edit')->name('categories.edit');
+Route::DELETE('categories/{id}', 'CategoriesController@destroy')->name('categories.destroy');
+
+// Route::resource('categories', 'CategoriesController');
 
 // products route
 Route::get('admin/product.create', 'ProductsController@index')->name('Product');
 Route::post('admin/product', 'ProductsController@store')->name('Create');
-
-Route::post('/admin/product.viewproduct/{id}', 'DiscussionController@store')->name('discussion.store');
-
 Route::get('admin/product.viewproduct', 'MarketController@product')->name('ViewProduct');
 Route::get('/admin/product.viewproduct/{id}', 'MarketController@viewproduct')->name('DetailProduct');
 Route::get('admin/product.addToCart/{product}', 'ProductsController@addToCart')->name('cart.add');
+
+// Discussion route
+Route::post('/admin/product.viewproduct/{id}', 'DiscussionController@store')->name('discussion.store');
 
 // cart route
 Route::get('/shoping-cart', 'ProductsController@showCart')->name('cart.show');

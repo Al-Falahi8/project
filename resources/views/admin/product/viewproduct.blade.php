@@ -43,36 +43,29 @@
     </div>
 
     <hr>
+    <h3 class="mb-3">Comments: {{ $product->discussions->count() }}</h3>
+    
     <div class="row">
-        <h3 class="ml-3">Comments: {{ $product->discussions->count() }}</h3>
-
         {{-- Comments List --}}
-        <ul class="comments col-5 text-left">
+        <div class="comments col-5 text-left">
             @foreach ($product->discussions as $comment)
                 
-            <li class="comment">
-                <div class="row">
-                    <div class="card-body text-left">
-                        <h4>{{ $comment->user->name }}</h4>
-                    </div>
-                    <div class="card-body text-right">
-                        <p>{{ $comment->created_at->format('d M Y') }}</p>
-                    </div>
-                </div>
-                
-                <div>
-                    <img src="/gameart/public/uploads/avatar/{{ Auth::user()->avatar }}" style="width: 32px; height: 32px; bottom: 1px; left:10px; border-radius:50%;" alt="User Image">
-                    {{ $comment->body }}
+            <li class="row">
+                <div class="col-md-12" style="border-radius: .3rem; border: 4px solid #333336; font-size: 13px; line-height: 18px; color: #7a8192; background: #f6f6f7;">
+                    <img class="float-left" src="/gameart/public/uploads/avatar/{{ $comment->user->avatar }}" style="width: 40px; height: 40px; bottom: 1px; left:10px; border-radius:50%;" alt="User Image">
+                    <p class="float-left"><small><a href="{{ route('userProfile', $comment->user->id )}}">{{ $comment->user->first_name }}</a></small></p>
+                    <p class="float-right"><small>{{ $comment->created_at->format('d M Y') }}</small></p><br>
+                    <span class="ml-2 justify-content">{{ $comment->body }}</span>
                 </div>
             </li>
             @endforeach
-        </ul>
+        </div>
         {{-- Comments List --}}
         
 
         {{-- Comments Form --}}
-        <div class="col-6 text-right">
-            <div class="card card-default">
+        <div class="col-md-6">
+            <div class="card card-dark">
                 <div class="card-header">
                     <div class="card-title">
                         <strong>Add Your Comment</strong>
@@ -85,10 +78,10 @@
                     <form action="{{ route('discussion.store', $product->id ) }}" method="POST">
                         {{ csrf_field() }}
                         <div class="form-group">
-                            <label for="comment">Comment</label>
+                            <label for="body">Comment</label>
                             <textarea name="body" class="form-control" cols="80" rows="4" placeholder="Enter Your Comment"></textarea>
                         </div>
-                        <div class="form-group text-right">
+                        <div class="form-group">
                             <button type="submit" class="btn btn-dark">Add Comment</button>
                         </div>
                     </form>

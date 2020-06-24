@@ -47,22 +47,22 @@
             @endcan
 
             <li class="nav-item has-treeview menu-open">
-                <a href="{{ route('Product') }}" class="nav-link">
-                    <i class="nav-icon fas fa-plus-square"></i>
+                <a href="{{ route('categories.index') }}" class="nav-link">
+                    <i class="nav-icon fas fa-th"></i>
                     <p>
-                        Add Assets
+                        Categories
                     </p>
                 </a>
             </li>
 
             <li class="nav-item has-treeview menu-open">
-            <a href="" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
-                <p>
-                    Categories
-                    <i class="fas fa-angle-left right"></i>
-                </p>
-            </a>
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-th"></i>
+                    <p>
+                        Categories List
+                        <i class="fas fa-angle-left right"></i>
+                    </p>
+                </a>
                 <ul class="nav nav-treeview">
                     @php
                         $categories = DB::table('categories')->get();
@@ -71,6 +71,15 @@
                         <a class="dropdown-item" href="{{url('categories', $category->id)}}"><i class="far fa-circle nav-icon"></i>{{ ucwords($category->name) }}</a>
                     @endforeach
                 </ul>
+            </li>
+
+            <li class="nav-item has-treeview menu-open">
+                <a href="{{ route('Product') }}" class="nav-link">
+                    <i class="nav-icon fas fa-plus-square"></i>
+                    <p>
+                        Add New Asset
+                    </p>
+                </a>
             </li>
 
             <li class="nav-item has-treeview menu-open">
@@ -89,7 +98,7 @@
                     <i class="nav-icon fas fa-power-off"></i>
                         {{ __('Logout') }}
                 </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                <form id="logout-form" action="{{ route('logout') }}" method="POST">
                     @csrf
                 </form>
             </li>

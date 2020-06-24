@@ -11,11 +11,16 @@
                     </div>
                     <div class="card-body text-center">
                         <h2 class="card-title"><strong>{{ $product->name }}</strong></h2>
+                        <p class="card-link">Price: €<span>{{ $product->price }}</span></p>
                         <p class="card-text">{{ $product->description }}</p>
                     </div>
-                    <div class="card-body">
-                        <p class="card-link">Price: €<span>{{ $product->price }}</span></p>
-                        <a href="{{ route('ViewProduct')}}" class="btn btn-dark btn-block">View asset</a>
+                    <div class="row">
+                        <div class="card text-left">
+                            <a href="{{ url('/admin/product.viewproduct', $product->id)}}" class="btn btn-dark btn-block">View asset</a>
+                        </div>
+                        <div class="card text-right">
+                            <a href="{{ route('cart.add', $product->id) }}" class="btn btn-default"><i class="fas fa-cart-arrow-down"></i></a>
+                        </div>
                     </div>
                 </div>
             @endforeach

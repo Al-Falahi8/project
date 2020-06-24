@@ -21,12 +21,12 @@
                     </div>
                     <p class="card-text">{{ $product->description }}</p>
                     <div class="row">
-                    <div class="card text-left">
-                        <a href="{{ url('/admin/product.viewproduct', $product->id)}}" class="btn btn-default btn-block">View asset</a>
-                    </div>
-                    <div class="card text-right">
-                        <a href="{{ route('cart.add', $product->id) }}" class="btn btn-default"><i class="fas fa-cart-arrow-down"></i></a>
-                    </div>
+                        <div class="card text-left">
+                            <a href="{{ url('/admin/product.viewproduct', $product->id)}}" class="btn btn-default btn-block">View asset</a>
+                        </div>
+                        <div class="card text-right">
+                            <a href="{{ route('cart.add', $product->id) }}" class="btn btn-default"><i class="fas fa-cart-arrow-down"></i></a>
+                        </div>
                     </div>
                 </div>
             @endforeach
