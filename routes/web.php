@@ -25,9 +25,12 @@ Auth::routes();
 // dashboard route
 Route::get('admin.dashboard', 'DashboardController@dashboard')->name('dashboard');
 Route::get('admin.dashboard', 'DashboardController@productsTable')->name('dashboard');
+Route::get('products/{id}/edit', 'DashboardController@editProduct')->name('products.edit');
+Route::put('products', 'DashboardController@productUpdate')->name('products.update');
+Route::DELETE('products/{id}', 'DashboardController@productDestroy')->name('products.destroy');
 
 // pages route
-Route::get('pages.index', 'HomeController@index')->name('Game Art');
+Route::get('pages.index', 'HomeController@index')->name('home');
 Route::get('pages.about', 'AboutController@about')->name('About Us');
 Route::get('pages.market', 'MarketController@market')->name('market');
 
@@ -49,7 +52,6 @@ Route::get('admin.users.edit', 'UsersController@editUsers')->name('users.edit');
 Route::post('admin/profile', 'UsersController@updateAvatar')->name('updateAvatar');
 Route::post('admin/profile.index', 'UsersController@updateUserProfile')->name('updateUserProfile');
 
-
 // categories route
 Route::get('categories', 'CategoriesController@categories')->name('categories');
 Route::get('categories/index', 'CategoriesController@index')->name('categories.index');
@@ -59,7 +61,6 @@ Route::get('categories/{id}', 'CategoriesController@show')->name('categories');
 Route::get('categories/{id}/edit', 'CategoriesController@edit')->name('categories.edit');
 Route::DELETE('categories/{id}', 'CategoriesController@destroy')->name('categories.destroy');
 
-// Route::resource('categories', 'CategoriesController');
 
 // products route
 Route::get('admin/product.create', 'ProductsController@index')->name('Product');

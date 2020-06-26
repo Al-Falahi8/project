@@ -6,14 +6,14 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{url('pages.index')}}" class="nav-link">HOME</a>
+            <a href="{{ route('home')}}" class="nav-link">HOME</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{url('pages.market')}}" class="nav-link">MARKET</a>
+            <a href="{{ route('market')}}" class="nav-link">MARKET</a>
         </li>
         
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{url('pages.contact')}}" class="nav-link">CONTACT US</a>
+            <a href="{{ route('contact.create')}}" class="nav-link">CONTACT US</a>
         </li>
     </ul>
 </nav>

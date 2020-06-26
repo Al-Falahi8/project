@@ -1,35 +1,7 @@
 @extends('layouts.main')
 @section('title', 'Home')
 @section('content')
-    
-    {{-- <div class="container">
-    <header>
-        <div class="overlay"></div>
-        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-            <source src="" type="video/mp4">
-            </video>
-            <div class="container h-100">
-                <div class="d-flex h-100 text-center align-items-center">
-                    <div class="w-100 text-white">
-                        <h1 class="display-3"></h1>
-                        <p class="lead mb-0"></p>
-                    </div>
-                </div>
-            </div>
-        </header>
-    </div> --}}
-    
-    <!-- 2D Game Assets section -->
-    {{-- <div class="container my-auto">
-            <div class="wrapper">
-                <div class="row h-100 justify-content-center align-items-center">
-                    <div class="col-lg-5 mt-5">
-                    
-                    </div>
-                </div>
-            </div>
-    </div> --}}
-    
+
     <div class="flex-center position-ref full-height pt-5 mb-5">
             
             <div class="content">

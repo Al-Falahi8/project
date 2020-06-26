@@ -30,20 +30,20 @@
 <body>
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="{{ url('pages.index')}}"><img class="logo pb-2 m-0" src="{{ asset('dist/img/Artboard 2.png')}}" alt="logo"></a>
+                <a class="navbar-brand" href="{{ route('home')}}"><img class="logo pb-2 m-0" src="{{ asset('dist/img/Artboard 2.png')}}" alt="logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse pt-4" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('pages.index')}}">HOME</a>
+                        <a class="nav-link" href="{{ route('home')}}">HOME</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('pages.about')}}">ABOUT US</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('pages.market')}}">MARKET <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ route('market')}}">MARKET <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" style="ul.navbar-nav.dropdown { background-color: #FF0000; }" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -59,7 +59,7 @@
                     </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('contact')}}">CONTACT US</a>
+                        <a class="nav-link" href="{{ route('contact.create')}}">CONTACT US</a>
                     </li>
                 </ul>
                 

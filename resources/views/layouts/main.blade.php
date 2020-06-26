@@ -14,12 +14,11 @@
     <link href="{{ asset('dists/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('dists/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    {{-- <link href="{{ asset('css/contact.css')}}" rel="stylesheet"> --}}
     <link href="{{ asset('css/toaster.min.css')}}" rel="stylesheet">
     <link href="{{ asset('css/comments.css')}}" rel="stylesheet">
     @yield('style')
-    {{-- <link href="{{ asset('custom-css/about.css') }}" rel="stylesheet">
-    <link href="{{ asset('custom-css/contact.css')}}" rel="stylesheet"> --}}
+    {{-- <link href="{{ asset('custom-css/about.css') }}" rel="stylesheet"> --}}
+
 </head>
 <body>
     
