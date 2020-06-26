@@ -29,16 +29,27 @@ class DashboardController extends Controller
         return view('admin.dashboard', compact('products'));
     }
 
-    public function editProduct(Product $product)
+    public function editProduct($product)
     {
+        $product = Product::findOrFail($product);
+
         $arr['product'] = $product;
 
         return view('admin.product.edit')->with($arr);
     }
 
-    public function productUpdate(Request $request, Product $product)
+    public function productUpdate(Request $request, $product)
     {
-        $product->image = $request->image;
+        $product = Product::findOrFail($product);
+
+        $image = $request->image;
+        if ($image) {
+            $imageName = $image->getClientOriginalName();
+            $image->move('uploads/products/', $imageName);
+            $formInput['image'] = $imageName;
+        }
+
+        $product->image = $imageName;
         $product->name = $request->name;
         $product->description = $request->description;
         $product->price = $request->price;

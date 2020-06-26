@@ -27,7 +27,7 @@ class MarketController extends Controller
      */
     public function market()
     {
-        $products = Product::paginate(20);
+        $products = Product::orderBy('created_at', 'desc')->paginate(20);
         return view('pages.market')->with(['allproducts' => $products]);
     }
 

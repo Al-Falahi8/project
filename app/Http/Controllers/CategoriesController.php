@@ -67,9 +67,9 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-        $categories = Product::where('category_id', $id)->get();
+        $categories = Product::where('category_id', $id)->paginate(20);
 
-        return view('admin.categories.categories', compact('categories'));
+        return view('admin.categories.categories')->with(['categories' => $categories]);
     }
 
     /**

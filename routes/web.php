@@ -26,7 +26,7 @@ Auth::routes();
 Route::get('admin.dashboard', 'DashboardController@dashboard')->name('dashboard');
 Route::get('admin.dashboard', 'DashboardController@productsTable')->name('dashboard');
 Route::get('products/{id}/edit', 'DashboardController@editProduct')->name('products.edit');
-Route::put('products', 'DashboardController@productUpdate')->name('products.update');
+Route::put('products/{id}', 'DashboardController@productUpdate')->name('products.update');
 Route::DELETE('products/{id}', 'DashboardController@productDestroy')->name('products.destroy');
 
 // pages route

@@ -24,7 +24,7 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                     <label>Image</label>
-                                    <input class="form-control" type="file" name="image" value="{{ $product->image }}">
+                                    <span><input class="form-control" type="file" name="image">{{ $product->image }}</span>
                                     </div>
                                 </div>
 
@@ -52,7 +52,7 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                     <label>Description</label>
-                                    <textarea class="form-control" type="text" name="description" value="{{ $product->description }}"></textarea>
+                                    <textarea class="form-control" type="text" name="description">{{ $product->description }}</textarea>
                                     </div>
                                 </div>
                             </div>

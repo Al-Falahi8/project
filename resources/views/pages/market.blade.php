@@ -4,10 +4,10 @@
 
     <div class="container col-12 text-center m-0 p-0">
         @if( session()->has('success'))
-                    <div class="alert alert-success text-center">
-                        {{ session()->get('success') }}
-                    </div>
-                @endif
+            <div class="alert alert-success text-center">
+                {{ session()->get('success') }}
+            </div>
+        @endif
         <div class="row">
             @foreach ($allproducts as $product)
                 <div class="card col-sm-12 col-md-6 col-lg-3 mb-3"  style="height: 295px; width: 270px; padding: 2px; background: rgb(221, 221, 221);">

@@ -82,12 +82,12 @@
                 <div class="card-body contact text-center h-100 white-text">
 
                     <h3 class="font-weight-bold my-4 pb-2">Contact information</h3>
-                    <ul class="text-lg-left list-unstyled ml-4">
+                    <ul class="text-lg-left list-unstyled ml-5">
                         <li>
                             <p>
                                 <i class="fas fa-map-marker-alt pr-2"></i>
                                 Mollardgasse, 1060<br> 
-                                Wien, Österreich
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wien, Österreich
                             </p>
                         </li>
 
@@ -108,19 +108,19 @@
                     <hr class="hr-light my-4">
                     <ul class="list-inline text-center list-unstyled">
                         <li class="list-inline-item">
-                            <a class="p-2 fa-lg tw-ic">
+                            <a href="#" class="p-2 fa-lg tw-ic">
                                 <i class="fab fa-twitter"></i> 
                             </a>
                         </li>
                         |
                         <li class="list-inline-item">
-                            <a class="p-2 fa-lg li-ic">
+                            <a href="#" class="p-2 fa-lg li-ic">
                                 <i class="fab fa-facebook"> </i>
                             </a>
                         </li>
                         |
                         <li class="list-inline-item">
-                            <a class="p-2 fa-lg ins-ic">
+                            <a href="#" class="p-2 fa-lg ins-ic">
                                 <i class="fab fa-instagram"> </i>
                             </a>
                         </li>

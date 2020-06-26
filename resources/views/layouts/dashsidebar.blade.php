@@ -46,6 +46,7 @@
             </li>
             @endcan
 
+            @can('manage-users')
             <li class="nav-item has-treeview menu-open">
                 <a href="{{ route('categories.index') }}" class="nav-link">
                     <i class="nav-icon fas fa-th"></i>
@@ -54,6 +55,7 @@
                     </p>
                 </a>
             </li>
+            @endcan
 
             <li class="nav-item has-treeview menu-open">
                 <a href="#" class="nav-link">
