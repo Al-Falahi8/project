@@ -57,7 +57,7 @@
             </li>
             @endcan
 
-            <li class="nav-item has-treeview menu-open">
+            <li class="nav-item has-treeview menu-close">
                 <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-th"></i>
                     <p>
@@ -69,9 +69,11 @@
                     @php
                         $categories = DB::table('categories')->get();
                     @endphp
-                    @foreach ($categories as $category)
-                        <a class="dropdown-item" href="{{url('categories', $category->id)}}"><i class="far fa-circle nav-icon"></i>{{ ucwords($category->name) }}</a>
-                    @endforeach
+                    <li class="nav-item">
+                        @foreach ($categories as $category)
+                            <a class="nav-link" href="{{url('categories', $category->id)}}"><i class="far fa-circle text-danger nav-icon"></i>{{ ucwords($category->name) }}</a>
+                        @endforeach
+                    </li>
                 </ul>
             </li>
 
@@ -94,15 +96,16 @@
             </li>
 
             <li class="nav-item has-treeview menu-open">
-                <a class="nav-link" href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
+                <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
                     <i class="nav-icon fas fa-power-off"></i>
+                    <p>
                         {{ __('Logout') }}
+                    </p>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
+                    </form>
                 </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                    @csrf
-                </form>
             </li>
         </ul>
     </nav>

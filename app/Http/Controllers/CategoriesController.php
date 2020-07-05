@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\Category;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CategoriesController extends Controller
 {
@@ -20,7 +21,7 @@ class CategoriesController extends Controller
 
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::paginate(20);
         return view('admin.categories.index', compact('categories'));
     }
 
@@ -31,7 +32,7 @@ class CategoriesController extends Controller
      */
     public function categories()
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('created_at', 'desc')->paginate(20);
         return view('admin.categories.categories', compact('categories'));
     }
 
@@ -53,10 +54,13 @@ class CategoriesController extends Controller
      */
     public function store(Request $request, Category $category)
     {
+        $request->validate([
+            'name' => 'required'
+        ]);
         $category->name = $request->name;
         $category->save();
 
-        return redirect()->route('categories.index');
+        return redirect()->route('categories.index')->with('success', 'Category was Successfully added');
     }
 
     /**
@@ -67,8 +71,7 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-        $categories = Product::where('category_id', $id)->paginate(20);
-
+        $categories = Product::orderBy('created_at', 'desc')->where('category_id', $id)->paginate(20);
         return view('admin.categories.categories')->with(['categories' => $categories]);
     }
 
@@ -107,6 +110,6 @@ class CategoriesController extends Controller
     {
         Category::destroy($id);
 
-        return redirect()->route('categories.index');
+        return redirect()->route('categories.index')->with('success', 'Category was Successfully Deleted');
     }
 }

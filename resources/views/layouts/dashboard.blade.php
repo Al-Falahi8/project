@@ -68,6 +68,10 @@
     <script src="{{asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
     <!-- AdminLTE App -->
     <script src="{{asset('dist/js/adminlte.js')}}"></script>
+    <script src="{{asset('dist/js/admin_script.js')}}"></script>
+    {{-- Sweet-alert --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    @include('sweetalert::alert')
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
     <!-- AdminLTE for demo purposes -->

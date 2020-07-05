@@ -10,26 +10,34 @@
     <title>{{ config('Game Art') }}</title>
 
 
+    <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Bbootstrap 4 -->
+    <link rel="stylesheet" href="{{asset('dists/css/bootstrap.min.css')}}">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <!-- Styles -->
-    <link href="{{ asset('dists/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('dists/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/toaster.min.css')}}" rel="stylesheet">
-    <link href="{{ asset('css/comments.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     @yield('style')
-    {{-- <link href="{{ asset('custom-css/about.css') }}" rel="stylesheet"> --}}
 
 </head>
 <body>
-    
-    @include('layouts.navbar')
+    <header>
+        @include('layouts.navbar')
+    </header>
 
-    <main class="container py-4">
+    <div class="container col-8 py-4">
         @yield('content')
-    </main>
+    </div>
     
-    @include('layouts.footer')
-    @include('sweetalert::alert')
+
+    <footer>
+        @include('layouts.footer')
+    </footer>
     @yield('script')
 
 
@@ -39,17 +47,10 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{asset('dist/js/admin_script.js')}}"></script>
+    <script src="{{asset('dist/js/pages_script.js')}}"></script>
     <script src="{{asset('dists/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/toastr.min.js')}}"></script>
     <script src="{{asset('dists/js/bootstrap.bundle.min.js')}}"></script>
-
-    {{-- <script>
-
-        @if(Session::has('success')) 
-            toastr.success("{{ Session::get('success') }}");
-        @endif
-
-    </script> --}}
-@include('sweetalert::alert')
 </body>
 </html>

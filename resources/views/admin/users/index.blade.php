@@ -2,9 +2,13 @@
 @section('title', 'Users Table')
 @section('content')
 
-
-    <div class="container mt-5">
+        <div class="container mt-5">
         <h1 class="mb-3 text-dark">Users</h1>
+        @if( session()->has('success'))
+            <div class="alert alert-success text-center">
+                {{ session()->get('success') }}
+            </div>
+        @endif
         <div class="row">
             <div class="table col-12 text-left">
                 <table class="table table-hover">
@@ -35,7 +39,7 @@
                                         <form action="{{ route('admin.users.destroy', $user) }}" method="POST" class="float-left">
                                             @csrf
                                             {{ method_field('DELETE') }}
-                                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                            <button type="submit" class="btn btn-danger confirmDelete" name="User"><i class="fas fa-trash-alt"></i></button>
                                         </form>
                                     </td>
                                 </tr>

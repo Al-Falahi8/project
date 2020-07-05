@@ -25,7 +25,7 @@ class DashboardController extends Controller
 
     public function productsTable()
     {
-        $products = Product::paginate(5);
+        $products = Product::orderBy('created_at', 'desc')->paginate(5);
         return view('admin.dashboard', compact('products'));
     }
 
@@ -40,6 +40,14 @@ class DashboardController extends Controller
 
     public function productUpdate(Request $request, $product)
     {
+        $request->validate([
+            'image'         =>  'required',
+            'name'          =>  'required',
+            'price'         =>  'required',
+            'description'   =>  'required',
+            'category_id'   =>  'required'
+        ]);
+
         $product = Product::findOrFail($product);
 
         $image = $request->image;

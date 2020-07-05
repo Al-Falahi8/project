@@ -2,9 +2,13 @@
 @section('title', 'Cart Page')
 @section('content')
 
-    <h3 class="ml-3">My Cart</h3>
-    
     <div class="container">
+        <h3 class="ml-3">My Cart</h3>
+        @if( session()->has('success'))
+            <div class="alert alert-success text-center">
+                {{ session()->get('success') }}
+            </div>
+        @endif
         <div class="row">
             @if($cart)
                 <div class="col-md-8">
@@ -30,7 +34,7 @@
                                     <form action="{{ route('product.remove', $product['id']) }}" method="post">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="href btn btn-danger btn-ms"><i class="fas fa-trash-alt"></i></button>
+                                        <button type="submit" class="href btn btn-danger btn-ms confirmDelete" name="Asset"><i class="fas fa-trash-alt"></i></button>
                                     </form>
                                 </td>
                             </tr>
@@ -58,7 +62,7 @@
                     </div>
                 </div>
             @else
-            <P>There are no Assets in the Cart</P>
+                <P class="text_no_assets mt-3 ml-4">There are no Assets in the Cart</P>
             @endif
         </div>
     </div>

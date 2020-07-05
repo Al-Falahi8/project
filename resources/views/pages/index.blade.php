@@ -2,428 +2,162 @@
 @section('title', 'Home')
 @section('content')
 
-    <div class="flex-center position-ref full-height pt-5 mb-5">
-            
-            <div class="content">
-                <div class="title m-b-md">
-                    <div class="item__banner--blurred"></div>
-                </div>
+    <div id="main-m" class="container">
 
-                <div class="section--sm section--offwhite section--assets">
-                    <div class="container">
-                        <div class="row">
-                        <div class="col-sm-6">
-                    <h2 class="h4 mt0">2D Game Assets</h2>
-                </div>
+        @if( session()->has('success'))
+            <div class="alert alert-success text-center">
+                {{ session()->get('success') }}
+            </div>
+        @endif
 
-                <div class="col-sm-6 hidden-xs text-right">
-                @php
-                    $categories = DB::table('categories')->where('id', 2)->get();
-                @endphp
-                @foreach ($categories as $category)
-                <a href="{{url('categories', $category->id)}}" class="btn btn-sm btn-dark">Browse all 2D </a>
-                @endforeach
+        <!-- Hero section -->
+        <div class="hero mb-5">
+            <div class="row justify-content-center">
+                <div class="col-8 text-center mt-5">
+                    <h3 class="text-center">WELCOME TO <span> GAME ART </span></h3>
+                    <h6 class="text-center">OUR GOAL TO MAKE YOUR DESIGN LOOKS GREAT, <br> CODE YOUR GAME AND LEAVE THE DESIGN FOR US.</h6>
+                    <p class="text-center">GAME ASSETS FOR INDIE GAME DEVELOPERS</p>
                 </div>
-                <div class="row">
-                    <div class="col-sm-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="{{asset('dist/img/background-2d.webp')}}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Background Forest</h5>
-                            </div>
-                            <div class="col-xs-7">
-                                <div class="item-card__price">
-                                    <span class="item-card__price__figure">
-                                        <ins>
-                                            <span class="Card-Price-amount amount"><span class="Card-Price-currencySymbol">€</span>2.25</span>
-                                        </ins>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="col-xs-5 offset-md-7">
-                                <span class="btn btn-md btn-dark" href="{{ route('ViewProduct')}}">View asset</span>
-                            </div>
+            </div>
+        </div>
+
+        <!-- 2D Game Assets section -->
+            <section class="container-fluid mt-5 px-0">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 image-element">
+                        <div class="img-wrap">
+                            <img src="{{asset('dist/img/background-2d.webp')}}" alt="" class="img-fluid">
                         </div>
                     </div>
-
-                    <div class="col-sm-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="{{asset('dist/img/background-2d.webp')}}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Background Forest</h5>
-                            </div>
-                            <div class="col-xs-7">
-                                        <div class="item-card__price">
-                                            <span class="item-card__price__figure">
-                                                <ins>
-                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">€</span>2.25</span>
-                                                </ins>
-                                            </span>
-                                        </div>
+                    <div class="col-lg-6 text-element text-center">
+                        <div class="row justify-content-center">
+                            <div class="col-10 col-lg-8">
+                                <div class="text-content">
+                                    <h2 class="title display-5">2D Game Assets</h2>
+                                    <div class="mbr-section-text">
+                                        <p class="text display-7">
+                                            In our 2D Section you can find the right 2D Backgrounds for your game,&nbsp;find what you're looking for and make your game look great.
+                                        </p>
                                     </div>
-                            <div class="col-xs-5 offset-md-7">
-                                <span class="btn btn-md btn-dark" href="{{ route('ViewProduct')}}">View asset</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mbr-section-btn pt-3 align-left">
+                            @php
+                                $categories = DB::table('categories')->where('id', 2)->get();
+                            @endphp
+                            @foreach ($categories as $category)
+                                <a class="btn btn-md btn-dark" href="{{url('categories', $category->id)}}">Browse all 2D</a>
+                            @endforeach
+                        </div>
+                    </div>        
+                </div>
+            </section>
+
+        <!-- 3D Game Assets section -->
+        <section class="container-fluid mt-5 px-0">
+            <div class="row align-items-center">
+                <div class="col-lg-6 text-element text-center order-2 order-md-1">
+                    <div class="row justify-content-center">
+                        <div class="col-10 col-lg-8">
+                            <div class="text-content">
+                                <h2 class="title display-5">3D Game Assets</h2>
+                                <div class="mbr-section-text">
+                                    <p class="mbr-text pt-3 mbr-light mbr-fonts-style align-left mbr-white display-5">
+                                        In our 3D Section you can find the right 3D Backgrounds for your game,&nbsp;find what you're looking for and make your game look great.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="col-sm-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="{{asset('dist/img/background-2d.webp')}}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Background Forest</h5>
-                            </div>
-                            <div class="col-xs-7">
-                                        <div class="item-card__price">
-                                            <span class="item-card__price__figure">
-                                                <ins>
-                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">€</span>2.25</span>
-                                                </ins>
-                                            </span>
-                                        </div>
-                                    </div>
-                            <div class="col-xs-5 offset-md-7">
-                                <span class="btn btn-md btn-dark" href="{{ route('ViewProduct')}}">View asset</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="{{asset('dist/img/background-2d.webp')}}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Background Forest</h5>
-                            </div>
-                            <div class="col-xs-7">
-                                        <div class="item-card__price">
-                                            <span class="item-card__price__figure">
-                                                <ins>
-                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">€</span>2.25</span>
-                                                </ins>
-                                            </span>
-                                        </div>
-                                    </div>
-                            <div class="col-xs-5 offset-md-7">
-                                <span class="btn btn-md btn-dark" href="{{ route('ViewProduct')}}">View asset</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 3D Game Assets section -->
-                </div>
-                    <div class="section--sm section--offwhite section--assets">
-                        <div class="container">
-                            <div class="row">
-                            <div class="col-sm-6">
-                        <h2 class="h4 mt0">3D Game Assets</h2>
-                    </div>
-
-                    <div class="col-sm-6 hidden-xs text-right">
+                    <div class="mbr-section-btn pt-3 align-left">
                         @php
-                        $categories = DB::table('categories')->where('id', 3)->get();
-                    @endphp
-                    @foreach ($categories as $category)
-                        <a href="{{url('categories', $category->id)}}" class="btn btn-sm btn-dark">Browse all 3D </a>
-                    @endforeach
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="{{asset('dist/img/3D-background.jpg')}}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Background Forest</h5>
-                            </div>
-                            <div class="col-xs-7">
-                                        <div class="item-card__price">
-                                            <span class="item-card__price__figure">
-                                                <ins>
-                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">€</span>2.25</span>
-                                                </ins>
-                                            </span>
-                                        </div>
-                                    </div>
-                            <div class="col-xs-5 offset-md-7">
-                                <span class="btn btn-md btn-dark" href="#">View asset</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="{{asset('dist/img/3D-background.jpg')}}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Background Forest</h5>
-                            </div>
-                            <div class="col-xs-7">
-                                        <div class="item-card__price">
-                                            <span class="item-card__price__figure">
-                                                <ins>
-                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">€</span>2.25</span>
-                                                </ins>
-                                            </span>
-                                        </div>
-                                    </div>
-                            <div class="col-xs-5 offset-md-7">
-                                <span class="btn btn-md btn-dark" href="#">View asset</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-sm-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="{{asset('dist/img/3D-background.jpg')}}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Background Forest</h5>
-                            </div>
-                            <div class="col-xs-7">
-                                        <div class="item-card__price">
-                                            <span class="item-card__price__figure">
-                                                <ins>
-                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">€</span>2.25</span>
-                                                </ins>
-                                            </span>
-                                        </div>
-                                    </div>
-                            <div class="col-xs-5 offset-md-7">
-                                <span class="btn btn-md btn-dark" href="#">View asset</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="{{asset('dist/img/3D-background.jpg')}}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Background Forest</h5>
-                            </div>
-                            <div class="col-xs-7">
-                                        <div class="item-card__price">
-                                            <span class="item-card__price__figure">
-                                                <ins>
-                                                    <span class="Card-Price-amount amount"><span class="Card-Price-currencySymbol">€</span>2.25</span>
-                                                </ins>
-                                            </span>
-                                        </div>
-                                    </div>
-                            <div class="col-xs-5 offset-md-7">
-                                <span class="btn btn-md btn-dark" href="#">View asset</span>
-                            </div>
-                        </div>
+                            $categories = DB::table('categories')->where('id', 3)->get();
+                            @endphp
+                        @foreach ($categories as $category)
+                            <a class="btn btn-md btn-dark" href="{{url('categories', $category->id)}}">Browse all 3D</a>
+                        @endforeach
                     </div>
                 </div>
 
-                <!-- GUI Game Assets section -->
-
-                </div>
-                    <div class="section--sm section--offwhite section--assets">
-                        <div class="container">
-                            <div class="row">
-                            <div class="col-sm-6">
-                        <h2 class="h4 mt0">GUI Game Assets</h2>
-                    </div>
-
-                    <div class="col-sm-6 hidden-xs text-right">
-                    @php
-                        $categories = DB::table('categories')->where('id', 4)->get();
-                    @endphp
-                    @foreach ($categories as $category)
-                        <a href="{{url('categories', $category->id)}}" class="btn btn-sm btn-dark">Browse all GUI </a>
-                    @endforeach
+                <div class="col-lg-6 order-1 order-md-2">
+                    <div class="img-wrap">
+                        <img src="{{asset('dist/img/3D-background.jpg')}}" alt="" class="img-fluid">
                     </div>
                 </div>
+            </div>         
+        </section>
 
-                <div class="row">
-                    <div class="col-sm-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="{{asset('dist/img/GUL.jpg')}}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Background Forest</h5>
-                            </div>
-                            <div class="col-xs-7">
-                                <div class="item-card__price">
-                                    <span class="item-card__price__figure">
-                                        <ins>
-                                            <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">€</span>2.25</span>
-                                        </ins>
-                                    </span>
+        <!-- GUI Game Assets -->
+        <section class="container-fluid mt-5 px-0">
+            <div class="row align-items-center">
+                <div class="col-lg-6 image-element ">
+                    <div class="img-wrap">
+                        <img src="{{asset('dist/img/GUL.jpg')}}" alt="" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-6 text-element text-center">
+                    <div class="row justify-content-center">
+                        <div class="col-10 col-lg-8">
+                            <div class="text-content">
+                                <h2 class="title display-5">GUI Game Assets</h2>
+                                <div class="mbr-section-text">
+                                    <p class="mbr-text pt-3 mbr-light mbr-fonts-style align-left display-7">
+                                        In our GUI Section you can find the right GUI SET for your game,&nbsp;find what you're looking for and make your game look great.
+                                    </p>
                                 </div>
                             </div>
-                            <div class="col-xs-5 offset-md-7">
-                                <span class="btn btn-md btn-dark" href="#">View asset</span>
-                            </div>
                         </div>
                     </div>
 
-                    <div class="col-sm-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="{{asset('dist/img/GUL.jpg')}}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Background Forest</h5>
-                            </div>
-                            <div class="col-xs-7">
-                                        <div class="item-card__price">
-                                            <span class="item-card__price__figure">
-                                                <ins>
-                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">€</span>2.25</span>
-                                                </ins>
-                                            </span>
-                                        </div>
-                                    </div>
-                            <div class="col-xs-5 offset-md-7">
-                                <span class="btn btn-md btn-dark" href="#">View asset</span>
-                            </div>
-                        </div>
+                    <div class="mbr-section-btn pt-3 align-left">
+                        @php
+                            $categories = DB::table('categories')->where('id', 4)->get();
+                        @endphp
+                        @foreach ($categories as $category)
+                            <a class="btn btn-md btn-dark display-4" href="{{url('categories', $category->id)}}">Browse all GUI</a>
+                        @endforeach
                     </div>
-                    
-                    <div class="col-sm-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="{{asset('dist/img/GUL.jpg')}}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Background Forest</h5>
-                            </div>
-                            <div class="col-xs-7">
-                                        <div class="item-card__price">
-                                            <span class="item-card__price__figure">
-                                                <ins>
-                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">€</span>2.25</span>
-                                                </ins>
-                                            </span>
-                                        </div>
-                                    </div>
-                            <div class="col-xs-5 offset-md-7">
-                                <span class="btn btn-md btn-dark" href="#">View asset</span>
-                            </div>
-                        </div>
-                    </div>
+                </div>
+            </div>
+        </section>
 
-                    <div class="col-sm-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="{{asset('dist/img/GUL.jpg')}}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Background Forest</h5>
+        <!-- Characters Assets section -->
+        <section class="container-fluid mt-5 mb-5 px-0">
+            <div class="row align-items-center">
+                <div class="col-lg-6 text-element text-center order-2 order-md-1">
+                    <div class="row justify-content-center">
+                        <div class="col-10 col-lg-8">
+                            <div class="text-content">
+                                <h2 class="title display-5">2D-3D Character</h2>
+                                <div class="mbr-section-text">
+                                    <p class="mbr-text pt-3 mbr-light mbr-fonts-style align-left mbr-white display-5">
+                                        In our Character Section you can find the right 2D and 3D Characters for your game,&nbsp;find what you're looking for and make your game look great.
+                                    </p>
+                                </div>
                             </div>
-                            <div class="col-xs-7">
-                                        <div class="item-card__price">
-                                            <span class="item-card__price__figure">
-                                                <ins>
-                                                    <span class="Card-Price-amount amount"><span class="Card-Price-currencySymbol">€</span>2.25</span>
-                                                </ins>
-                                            </span>
-                                        </div>
-                                    </div>
-                            <div class="col-xs-5 offset-md-7">
-                                <span class="btn btn-md btn-dark" href="#">View asset</span>
+
+                            <div class="mbr-section-btn pt-3 align-left">
+                                @php
+                                    $categories = DB::table('categories')->where('id', 1)->get();
+                                @endphp
+                                @foreach ($categories as $category)
+                                    <a class="btn btn-md btn-dark display-4" href="{{url('categories', $category->id)}}">Browse all Characters</a>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Character Assets section -->
-
-                </div>
-                    <div class="section--sm section--offwhite section--assets">
-                        <div class="container">
-                            <div class="row">
-                            <div class="col-sm-6">
-                        <h2 class="h4 mt0">Character</h2>
-                    </div>
-
-                    <div class="col-sm-6 hidden-xs text-right">
-                    @php
-                        $categories = DB::table('categories')->where('id', 1)->get();
-                    @endphp
-                    @foreach ($categories as $category)
-                        <a href="{{url('categories', $category->id)}}" class="btn btn-sm btn-dark">Browse all Character </a>
-                    @endforeach
+                <div class="col-lg-6 order-1 order-md-2">
+                    <div class="img-wrap">
+                        <img src="{{asset('dist/img/2D-Character.jpg')}}" alt="" class="img-fluid">
                     </div>
                 </div>
+            </div>         
+        </section>
+    </div>
 
-                <div class="row">
-                    <div class="col-sm-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="{{asset('dist/img/2D-Character.jpg')}}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">2D-Character</h5>
-                            </div>
-                            <div class="col-xs-7">
-                                        <div class="item-card__price">
-                                            <span class="item-card__price__figure">
-                                                <ins>
-                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">€</span>2.25</span>
-                                                </ins>
-                                            </span>
-                                        </div>
-                                    </div>
-                            <div class="col-xs-5 offset-md-7">
-                                <span class="btn btn-md btn-dark" href="#">Character</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="{{asset('dist/img/2D-Character1.jpg')}}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">2D-Character</h5>
-                            </div>
-                            <div class="col-xs-7">
-                                        <div class="item-card__price">
-                                            <span class="item-card__price__figure">
-                                                <ins>
-                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">€</span>2.25</span>
-                                                </ins>
-                                            </span>
-                                        </div>
-                                    </div>
-                            <div class="col-xs-5 offset-md-7">
-                                <span class="btn btn-md btn-dark" href="#">Character</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-sm-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="{{asset('dist/img/2D-Character1.jpg')}}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">2D-character</h5>
-                            </div>
-                            <div class="col-xs-7">
-                                        <div class="item-card__price">
-                                            <span class="item-card__price__figure">
-                                                <ins>
-                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">€</span>2.25</span>
-                                                </ins>
-                                            </span>
-                                        </div>
-                                    </div>
-                            <div class="col-xs-5 offset-md-7">
-                                <span class="btn btn-md btn-dark" href="#">Character</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="{{asset('dist/img/2D-Character1.jpg')}}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">2D-character</h5>
-                            </div>
-                            <div class="col-xs-7">
-                                        <div class="item-card__price">
-                                            <span class="item-card__price__figure">
-                                                <ins>
-                                                    <span class="Card-Price-amount amount"><span class="Card-Price-currencySymbol">€</span>2.25</span>
-                                                </ins>
-                                            </span>
-                                        </div>
-                                    </div>
-                            <div class="col-xs-5 offset-md-7">
-                                <span class="btn btn-md btn-dark" href="#">Character</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
 @endsection

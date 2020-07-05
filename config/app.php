@@ -240,10 +240,6 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
-
-
-
-
     ],
 
 ];

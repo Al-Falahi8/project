@@ -26,6 +26,11 @@ class UsersController extends Controller
 
     public function updateAvatar(Request $request)
     {
+        $request->validate([
+            'avatar'    =>  'required'
+        ]);
+
+
         if ($request->hasFile('avatar')) {
             $avatar = $request->file('avatar');
             $fileName = time() . '.' . $avatar->getClientOriginalExtension();
@@ -35,7 +40,7 @@ class UsersController extends Controller
             $user->avatar = $fileName;
             $user->save();
 
-            return back();
+            return redirect()->route('userProfile')->with('success', 'Picture has been successfully added');
         }
     }
 
@@ -49,6 +54,6 @@ class UsersController extends Controller
         $user->email = $request->email;
         $user->save();
 
-        return redirect()->route('userProfile', compact('user'))->with('success', 'Photo has been successfully added');
+        return redirect()->route('userProfile', compact('user'))->with('success', 'Profile has been successfully Updated');
     }
 }

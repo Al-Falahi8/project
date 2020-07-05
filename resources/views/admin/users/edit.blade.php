@@ -2,16 +2,16 @@
 
 @section('content')
 
+<div class="container mt-5">
     @if (session('success'))
         <div class="alert alert-success" role="alert">
             {{ session('success') }}
         </div>
     @endif
-    <div class="container mt-5">
-
-        <div class="row justify-content-center">
-
-            <div class="col-md-8">
+    
+    <div class="row justify-content-center">
+        
+        <div class="col-md-8">
 
                 <div class="card">
 

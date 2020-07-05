@@ -2,6 +2,7 @@
 @section('title', 'User Dashboard')
 @section('content')
 @can('manage-users')
+
     <div class="container">
         <div class="row mb-2">
             <div class="col-sm-6">
@@ -57,6 +58,11 @@
 
     <div class="container mt-5">
         <h3 class="mb-3 text-dark">Assets Table</h3>
+        @if( session()->has('success'))
+            <div class="alert alert-success text-center">
+                {{ session()->get('success') }}
+            </div>
+        @endif
         <div class="row">
             <div class="table col-12">
                 <table class="table table-hover">
@@ -85,7 +91,7 @@
                                     <form action="{{ route('products.destroy', $product->id) }}" method="POST" class="float-left">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                        <button type="submit" class="btn btn-danger confirmDelete" name="Assets"><i class="fas fa-trash-alt"></i></button>
                                     </form>
                                 </td>
                             </tr>

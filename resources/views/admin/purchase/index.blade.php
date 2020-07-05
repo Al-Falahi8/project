@@ -1,7 +1,13 @@
 @extends('layouts.dashboard')
 
 @section('content')
+
 <div class="container">
+    @if( session()->has('success'))
+        <div class="alert alert-success text-center">
+            {{ session()->get('success') }}
+        </div>
+    @endif
     <h3 class="mt-3 mb-3">Your purchases</h3>
         <div class="row">
             @foreach ($carts as $cart)

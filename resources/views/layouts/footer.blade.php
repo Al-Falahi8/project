@@ -1,8 +1,8 @@
 <!-- Footer -->
-    <footer class="container page-footer bottom font-small bg-dark">
+    <footer class="container page-footer font-small bg-dark">
 
         <!-- Footer Elements -->
-        <div class="container">
+        <div class="container-footer">
 
             <!-- Call to action -->
             <ul class="list-unstyled list-inline text-center pt-3">
@@ -10,7 +10,7 @@
                 <h5 class="mb-1">Join Game Art for free</h5>
             </li>
             <li class="list-inline-item">
-                <a href="{{ route('register') }}" class="btn btn-outline-danger">Register!</a>
+                <a href="{{ route('register') }}" class="btn btn-outline-light">Register!</a>
             </li>
             </ul>
             <!-- Call to action -->

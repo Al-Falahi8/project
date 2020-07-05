@@ -34,7 +34,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse pt-4" id="navbarNavDropdown">
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('home')}}">HOME</a>
@@ -46,7 +46,7 @@
                         <a class="nav-link" href="{{ route('market')}}">MARKET <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" style="ul.navbar-nav.dropdown { background-color: #FF0000; }" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         CATEGORIES
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -65,61 +65,63 @@
                 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
+
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('cart.show') }}">
                             <span class="fas fa-cart-arrow-down">
                             ({{ session()->has('cart') ? session()->get('cart')->totalQty : '0' }}) MY CART
-                        </span>
-                    </a>
-                </li>
-                <!-- Authentication Links -->
-                @guest
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                </li>
-                @if (Route::has('register'))
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                </li>
-                @endif
-                @else
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="position: relative; padding-left: 50px;">
-                        <img src="/gameart/public/uploads/avatar/{{ Auth::user()->avatar }}" style="width: 32px; height: 32px; position:absolute; bottom: 5px; left:10px; border-radius:50%;">
-                        {{ Auth::user()->first_name }} <span class="caret"></span>
-                    </a>
+                            </span>
+                        </a>
+                    </li>
+
+                    <!-- Authentication Links -->
+                    @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('LOGIN') }}</a>
+                    </li>
+
+                    @if (Route::has('register'))
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('REGISTER') }}</a>
+                    </li>
+                    @endif
+                    @else
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="position: relative; padding-left: 50px;">
+                            <img src="/gameart/public/uploads/avatar/{{ Auth::user()->avatar }}" style="width: 32px; height: 32px; position:absolute; bottom: 5px; left:10px; border-radius:50%;">
+                            {{ Auth::user()->first_name }} <span class="caret"></span>
+                        </a>
                     
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('purchase.index') }}"><i class="fas fa-grip-horizontal mr-3"></i>Your Purchases</a>
-                        @can('manage-users')
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            @can('manage-users')
                             <a class="dropdown-item" href="{{ route('dashboard') }}"><i class="fas fa-tachometer-alt mr-3"></i>Dashboard</a>
-                        @endcan
-                        <a class="dropdown-item" href="{{ route('Product') }}"><i class="fas fa-plus-square mr-3"></i>Add Asset</a>
-                        <a class="dropdown-item" href="{{ route('userProfile') }}"><i class="fas fa-user mr-3"></i>Profile</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                                <i class="fas fa-power-off mr-3"></i>{{ __('Logout') }}
+                            @endcan
+                            <a class="dropdown-item" href="{{ route('Product') }}"><i class="fas fa-plus-square mr-3"></i>Add Asset</a>
+                            <a class="dropdown-item" href="{{ route('userProfile') }}"><i class="fas fa-user mr-3"></i>Profile</a>
+                            <a class="dropdown-item" href="{{ route('purchase.index') }}"><i class="fas fa-money-bill-alt mr-2"></i>Your Purchases</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                    <i class="fas fa-power-off mr-3"></i>{{ __('Logout') }}
                             </a>
-                            
+
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
                         </div>
                     </li>
                     @endguest
-                </div>
-            </ul>
+                </ul>
+            </div>
         </nav>
-        </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     
-    <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('js/jquery.min.js')}}"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="{{asset('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -148,6 +150,7 @@
     <script src="{{asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
     <!-- AdminLTE App -->
     <script src="{{asset('dist/js/adminlte.js')}}"></script>
+    <script src="{{asset('js/app.js')}}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
     <!-- AdminLTE for demo purposes -->

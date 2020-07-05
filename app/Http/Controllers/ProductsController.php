@@ -26,13 +26,18 @@ class ProductsController extends Controller
 
     public function index()
     {
+
+        if (session('success')) {
+            toast('Your Asset has been Successfully added', 'success', 'top-right');
+        }
+
         return view('admin.product.create');
     }
 
     public function create()
     {
         $categories = Category::pluck('name', 'id');
-        return view('admin.product.create', compact('categories'));
+        return view('admin.product.create', compact('categories'))->with('success', 'Asset has been successfully added');
     }
 
     public function store(Request $request)
@@ -45,7 +50,7 @@ class ProductsController extends Controller
             'name'          =>  'bail|required',
             'description'   =>  'required',
             'price'         =>  'required',
-            'image'         =>  'image|max:10000'
+            'image'         =>  'required|image|max:10000'
         ]);
 
         // image upload
@@ -59,8 +64,7 @@ class ProductsController extends Controller
 
 
         Product::create($formInput);
-        return redirect()->route('dashboard')->with('success', 'Asset has been successfully added. Thank you');
-        //     return redirect('/admin.dashboard')->with('success', 'Assets have been added successfully');
+        return redirect()->route('market')->with('success', 'Asset has been successfully added');
     }
 
     public function destroy(Product $product)
@@ -74,7 +78,7 @@ class ProductsController extends Controller
             session()->put('cart', $cart);
         }
 
-        return redirect()->route('cart.show')->with('success', 'Product has been removed');
+        return redirect()->route('cart.show')->with('success', 'Asset has been removed');
     }
 
     public function addToCart(Product $product)
@@ -88,7 +92,7 @@ class ProductsController extends Controller
         $cart->add($product);
 
         session()->put('cart', $cart);
-        return redirect()->route('market')->with('success', 'Product has been added');
+        return redirect()->route('market')->with('success', 'Asset has been added to Cart');
     }
 
     public function showCart()
@@ -126,7 +130,7 @@ class ProductsController extends Controller
             // clearn Cart (session)
             session()->forget('cart');
 
-            return redirect()->route('market')->with('success', 'Payment was successful. Thank you');
+            return redirect()->route('purchase.index')->with('success', 'Payment was successful. Thank you');
         } else {
             return redirect()->back();
         }
@@ -135,8 +139,6 @@ class ProductsController extends Controller
     public function download()
     {
         $item = DB::table('products')->get();
-        //return response()->download(storage_path("app/uploads/", $item));
-
-        return view('admin.purchase.index', compact('item'));
+        return redirect()->route('purchase.index')->with('success', 'Download was successful. Thank you');
     }
 }

@@ -2,7 +2,21 @@
 @section('title', 'Edit Assets')
 @section('content')
 
-    <div class="container mt-5 mb-5">
+<div class="container mt-5 mb-5">
+    @if( session()->has('success'))
+        <div class="alert alert-success text-center">
+            {{ session()->get('success') }}
+        </div>
+    @endif
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            @foreach($errors->all() as $error)
+                {{ $error }}
+            @endforeach
+        </div>
+    @endif
+
         <div class="card card-dark card-outline ml-3 col-7" style="border-color: #f26a2b;">
             <div class="card-body">
                 <div class="e-profile">

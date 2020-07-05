@@ -23,7 +23,9 @@
                         <h2><strong>{{ $product->name }}</strong></h2>
                     </div>
                     <hr>
-                    <h4>{{ $product->description }}</h4>
+                    <p>
+                        {{ $product->description }}
+                    </p>
                     <br>
 
                     <div class="row">
@@ -40,53 +42,58 @@
             @endforeach
 
         </div>
-    </div>
-
-    <hr>
-    <h3 class="mb-3">Comments: {{ $product->discussions->count() }}</h3>
     
-    <div class="row">
-        {{-- Comments List --}}
-        <div class="comments col-5 text-left">
-            @foreach ($product->discussions as $comment)
-                
-            <li class="row">
-                <div class="col-md-12" style="border-radius: .3rem; border: 4px solid #333336; font-size: 13px; line-height: 18px; color: #7a8192; background: #f6f6f7;">
-                    <img class="float-left" src="/gameart/public/uploads/avatar/{{ $comment->user->avatar }}" style="width: 40px; height: 40px; bottom: 1px; left:10px; border-radius:50%;" alt="User Image">
-                    <p class="float-left"><small><a href="{{ route('userProfile', $comment->user->id )}}">{{ $comment->user->first_name }}</a></small></p>
-                    <p class="float-right"><small>{{ $comment->created_at->format('d M Y') }}</small></p><br>
-                    <span class="ml-2 justify-content">{{ $comment->body }}</span>
-                </div>
-            </li>
-            @endforeach
-        </div>
-        {{-- Comments List --}}
-        
 
-        {{-- Comments Form --}}
-        <div class="col-md-6">
-            <div class="card card-dark">
-                <div class="card-header">
-                    <div class="card-title">
-                        <strong>Add Your Comment</strong>
+        <hr>
+    
+        <h3 class="mb-3">Comments: {{ $product->discussions->count() }}</h3>
+        <div class="row">
+            {{-- Comments List --}}
+            <div class="comments ml-4 mr-4 col-6 text-left">
+                @foreach ($product->discussions as $comment)
+                    
+                <li class="row">
+                    <div class="col-md-12 p-3" style="border-radius: .3rem; border: 4px solid #333336; font-size: 13px; line-height: 18px; color: #7a8192; background: #f6f6f7;">
+                        <img class="float-left" src="/gameart/public/uploads/avatar/{{ $comment->user->avatar }}" style="width: 40px; height: 40px; bottom: 1px; left:10px; border-radius:50%;" alt="User Image">
+                        <p class="float-left"><small><a href="{{ route('userProfile', $comment->user->id )}}">{{ $comment->user->first_name }}</a></small></p>
+                        <p class="float-right"><small>{{ $comment->created_at->format('d M Y') }}</small></p><br>
+                        <span class="ml-2 justify-content">{{ $comment->body }}</span>
                     </div>
-                </div>
+                </li>
+                @endforeach
+            </div>
+            {{-- Comments List --}}
+            
+
+            {{-- Comments Form --}}
+            <div class="card card-dark card-outline ml-4 col-5 text-right" style="border-color: #f26a2b;">
                 <div class="card-body">
-                    @guest
-                        <div class="alert alert-danger">Please Login To Comment</div>
-                    @else
-                    <form action="{{ route('discussion.store', $product->id ) }}" method="POST">
-                        {{ csrf_field() }}
-                        <div class="form-group">
-                            <label for="body">Comment</label>
-                            <textarea name="body" class="form-control" cols="80" rows="4" placeholder="Enter Your Comment"></textarea>
+                    <div class="e-profile">
+                        <div class="row">
+                            <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+                                <div class="text-center text-sm-left mb-2 mb-sm-0">
+                                    <strong>Add Your Comment</strong>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-dark">Add Comment</button>
-                        </div>
-                    </form>
-                    @endguest
-                
+                    </div>
+                    <div class="card-body">
+                        @guest
+                            <div class="alert alert-danger">Please Login To Comment</div>
+                        @else
+                        <form action="{{ route('discussion.store', $product->id ) }}" method="POST">
+                            {{ csrf_field() }}
+                            <div class="form-group">
+                                <label for="body">Comment</label>
+                                <textarea name="body" class="form-control" cols="80" rows="4" placeholder="Enter Your Comment"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-dark">Add Comment</button>
+                            </div>
+                        </form>
+                        @endguest
+                    
+                    </div>
                 </div>
             </div>
         </div>
