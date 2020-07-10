@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="container mt-5">
-        <h1 class="mb-3 text-dark mb-5">Create Category</h1>
+        <h1 class="mb-3 ml-3 text-dark mb-5">Create Category</h1>
         @if( session()->has('success'))
             <div class="alert alert-success text-center">
                 {{ session()->get('success') }}

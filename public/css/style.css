@@ -52,6 +52,9 @@ a.btn .btn-outline-danger {
 }
 
 
+/* Home style ends */
+
+
 /* navbar */
 
 .navbar li {
@@ -101,10 +104,78 @@ a.dropdown-item i {
 /* Navbar ends */
 
 
-/* footer */
+/* global style */
+
+.form-group .btn {
+    color: #f26a2b;
+}
 
 
-/* Home style ends */
+/* global style ends */
+
+
+/* login style */
+
+#signin {
+    background-color: rgb(52, 58, 64, .9);
+}
+
+.btn {
+    color: #f26a2b !important;
+}
+
+.form-group label {
+    color: #ffffff;
+}
+
+.form-check-label {
+    color: #ffffff;
+}
+
+.for_get_pass a {
+    color: #ffffff;
+}
+
+.checkbox {
+    color: #f26a2b;
+}
+
+i.fas {
+    color: #f26a2b;
+}
+
+
+/* login style ends */
+
+
+/* Register style */
+
+#signup {
+    background-color: rgba(52, 58, 64, .9);
+}
+
+.btn {
+    color: #f26a2b !important;
+}
+
+.form-group {
+    color: #f26a2b;
+}
+
+.checkbox {
+    color: #f26a2b;
+}
+
+label {
+    color: #f26a2b;
+}
+
+.form-control::placeholder {
+    color: black;
+}
+
+
+/* Register style ends */
 
 
 /* about us style */

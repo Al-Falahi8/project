@@ -3,6 +3,7 @@
 @section('content')
 
     <div class="container my-5">
+        <br><br>
         <section class="contact-section dark-grey-text mb-5">
         
         <style>
@@ -127,11 +128,15 @@
                                 </ul>
 
                             </div>
+                            <br><br>
                         </div>
+                        <br>
                     </div>
+                    <br>
                 </div>
-
+                <br>
     </section>
+    <br>
     </div>
 
 @endsection

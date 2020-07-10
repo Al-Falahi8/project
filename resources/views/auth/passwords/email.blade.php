@@ -1,13 +1,12 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
 
-                <div class="card-body">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-6 coll-md-3">
+                <div id="signup" class="jumbotron">
+
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -36,15 +35,25 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-dark">
+                                <button type="submit" class="btn btn-dark btn-block">
                                     {{ __('Send Password Reset Link') }}
                                 </button>
                             </div>
                         </div>
                     </form>
                 </div>
+                <br><br>
+                <br><br>
             </div>
+            <br><br>
+            <br><br>
         </div>
+        <br><br>
+        <br><br>
     </div>
-</div>
+    <br><br>
+    <br><br>
+    </div>
+    <br><br>
+    <br><br>
 @endsection

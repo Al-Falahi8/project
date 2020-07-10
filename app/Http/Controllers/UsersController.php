@@ -40,7 +40,7 @@ class UsersController extends Controller
             $user->avatar = $fileName;
             $user->save();
 
-            return redirect()->route('userProfile')->with('success', 'Picture has been successfully added');
+            return redirect()->route('userProfile')->with('success', 'Your Profile picture has been successfully updated');
         }
     }
 
